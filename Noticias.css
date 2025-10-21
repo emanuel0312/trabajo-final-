@@ -1,9 +1,44 @@
 .Itagui {
     display: block;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 15px;
     max-width: 100%;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.descripcion {
+    text-align: left;
+    color: #8bbed6;
+    font-size: 11px;
+}
+
+.fecha {
+    text-align: left;
+    color: #8bbed6;
+    font-size: 11px;
+}
+
+.titulito {
+    font-family: 'Alkatra', sans-serif;
+    text-align: left;
+    color: #000000;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Alkatra', sans-serif;
+    text-align: left;
+    color: #000000;
+    font-size: 16px;
+}
+
+.h1 {
+    font-family: 'Alfa Slab One', cursive;
+    text-align: left;
+    color: #425eff;
+    font-size: 150%;
+    font-weight: bold;
 }
