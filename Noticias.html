@@ -15,65 +15,140 @@
 </head>
 
 <body>
-    <header>
+    <nav class="navbar navbar-dark" style="background-color: #0180c7;">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">
+                <img src="Itagui.jpeg" width="200" class="me-2" alt="Logo Itagüí">
+            </a>
 
-    </header>
-    <main>
-        <article>
+            <form class="d-flex mx-auto w-50" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-light" type="submit">Buscar</button>
+            </form>
 
-        </article>
-    </main>
-    <div id="carouselExample" class="carousel slide carousel-dark">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <!-- 
-      <img src="https://concepto.de/wp-content/uploads/2018/08/persona-e1533759204552.jpg" class="d-block w-100" alt="...">
-      -->
-                <div class="bg-primary text-white p-3" style="height: 500px;">
-                    <h5>Desarticulación de banda de "apartamentos" en Itagüí</h5>
-                    <p>Operativo conjunto entre la Policía Nacional y la Secretaría de Seguridad local.</p>
+            <!-- Botón menú lateral -->
+            <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
 
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header" style="background-color: #0180c7;">
+                    <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-center" style="background-color: #0180c7;">
+                    <div class="d-grid gap-3">
+                        <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
+                        <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+                        <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </nav>
+
+
+    <div id="carouselExample" class="carousel slide carousel-dark">
+        <div class="carousel-inner p-3">
+
+            <div class="carousel-item active">
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="teatrouribe.jpg" alt="Teatro" style="height: 550px;">
+                        </div>
+                        <div class="col-6">
+                            <h2 class="titulitogrande">EVENTOS</h2>
+                            <h2 class="titulito">FESTIVAL DE TEATRO CIUDAD DE ITAGÜI</h2>
+                            <p class="fecha">Fecha: Desde 1992</p>
+                            <p>Frecuencia: Desde 1992, cuenta con agrupaciones nacionales e internacionales.</p>
+                            <p>Sedes: Teatro del Sur y Teatro Norte.</p>
+                            <p class="descripcion">Descripción:
+                                El Festival de Teatro Ciudad de Itagüí, que se celebra desde 1992, es un evento
+                                cultural
+                                destacado que reúne a agrupaciones teatrales nacionales e internacionales. Este
+                                festival
+                                ofrece una plataforma para la expresión artística y la promoción del teatro en la
+                                región.
+                                Las presentaciones se llevan a cabo en dos sedes principales: el Teatro del Sur y el
+                                Teatro Norte, brindando a los asistentes una experiencia enriquecedora y diversa en
+                                el
+                                ámbito teatral.</p>
+                            <h2 class="titulito">FIESTAS DE LA INDUSTRIA, COMERCIO Y CULTURA</h2>
+                            <p class="fecha">Fecha: Anual, en agosto</p>
+                            <p>Celebración: Itagüí celebra su desarrollo industrial, comercial y cultural
+                                con
+                                eventos, conciertos y actividades para todas las edades.</p>
+                            <p class="descripcion">Descripción:
+                                Las Fiestas de la Industria, Comercio y Cultura de Itagüí son una celebración anual
+                                que
+                                tiene lugar en agosto. Este evento destaca el desarrollo industrial y comercial de
+                                la
+                                ciudad, al mismo tiempo que promueve su rica herencia cultural. Durante las
+                                festividades,
+                                se organizan una variedad de eventos, conciertos y actividades diseñadas para
+                                todas las
+                                edades, ofreciendo a los residentes y visitantes una experiencia vibrante y
+                                entretenida.</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="carousel-item">
                 <div class="container-sm">
                     <div class="row">
                         <div class="col-6">
-                            <img class="img-fluid" src="Panoramica_Itagüí.jpg" alt="Itagüi" width="600" height="400">
+                            <img src="iglesia.jpg" alt="Itagüi" style="height: 500px;">
+                            <img class="m-2"" src="SMART.jpeg" alt="Itagüi" style="height: 385px;">
                         </div>
                         <div class="col-6">
-                            <p class="h1">NOTICIAS RECIENTES
-                            </p>
-                            <h2 class="titulito">Desarticulación de banda de "apartamentos"</h2>
+                            <h2 class="titulitogrande">NOTICIAS RECIENTES</h2>
+                            <h2 class="titulito">DESARTICULACIÓN DE BANDAS DE "APARTAMENTEROS"</h2>
                             <p class="fecha">Fecha: 5 de junio, 2025</p>
-                            <p>Resultado: las autoridades judicializaron a una persona y se identificaron tras más,
-                                gracias a un operativo conjunto entre la Policía Nacional y la Secretaría de Seguridad
+                            <p>Resultado: las autoridades judicializaron a una persona y se identificaron tras
+                                más,
+                                gracias a un operativo conjunto entre la Policía Nacional y la Secretaría de
+                                Seguridad
                                 local.</p>
-                            <p class="descripcion">Descripción: En un operativo conjunto entre la Policía Nacional y la
-                                Fiscalía, se logró la desarticulación de una banda dedicada al robo de apartamentos en
-                                Itagüí. La operación culminó con la judicialización de una persona y la identificación
-                                de varios miembros más de la banda. Las autoridades continúan con las investigaciones
+                            <p class="descripcion">Descripción: En un operativo conjunto entre la Policía
+                                Nacional y la
+                                Fiscalía, se logró la desarticulación de una banda dedicada al robo de
+                                apartamentos en
+                                Itagüí. La operación culminó con la judicialización de una persona y la
+                                identificación
+                                de varios miembros más de la banda. Las autoridades continúan con las
+                                investigaciones
                                 para capturar a los demás implicados y garantizar la seguridad en la zona.</p>
-                            <h2 class="titulito">Premio Expo Smart Cities</h2>
+                            <h2 class="titulito">PREMIO EXPO SMART CITIES</h2>
                             <p class="fecha">Fecha: 30 de mayo, 2025</p>
-                            <p>Reconocimiento: Itagüi recibió el galardón gracias a su programa "Internet para todos",
+                            <p>Reconocimiento: Itagüi recibió el galardón gracias a su programa "Internet para
+                                todos",
                                 que mejoró los indicadores de seguridad y conectividad.</p>
                             <p class="descripcion">Descripción:
                                 Itagüí fue galardonada con el premio Expo Smart Cities por su innovador programa
                                 "Internet para todos". Este programa ha logrado mejorar significativamente los
-                                indicadores de seguridad y conectividad en la ciudad, proporcionando acceso a internet
-                                de alta calidad a comunidades vulnerables. El reconocimiento destaca el compromiso de
+                                indicadores de seguridad y conectividad en la ciudad, proporcionando acceso a
+                                internet
+                                de alta calidad a comunidades vulnerables. El reconocimiento destaca el
+                                compromiso de
                                 Itagüí con la inclusión digital y el desarrollo sostenible.</p>
                             <h2 class="titulito">REDUCCIÓN DE ACCIDENTES DE TRÁNSITO</h2>
                             <p class="fecha">Fecha: 27 de mayo, 2025</p>
                             <p>Disminuyó en un 65% la mortalidad por siniestros viales en comparación con el año
                                 anterior, especialmente en la autopista Sur.</p>
                             <p class="descripcion">Descripción:
-                                Itagüí ha logrado una notable reducción del 65% en la mortalidad por siniestros viales
-                                en comparación con el año anterior. Esta mejora se atribuye a las nuevas medidas de
+                                Itagüí ha logrado una notable reducción del 65% en la mortalidad por siniestros
+                                viales
+                                en comparación con el año anterior. Esta mejora se atribuye a las nuevas medidas
+                                de
                                 seguridad implementadas, especialmente en la autopista Sur, una de las vías más
-                                transitadas de la ciudad. Las autoridades locales continúan trabajando en estrategias
-                                para mantener y mejorar la seguridad vial, promoviendo campañas de concientización y
+                                transitadas de la ciudad. Las autoridades locales continúan trabajando en
+                                estrategias
+                                para mantener y mejorar la seguridad vial, promoviendo campañas de
+                                concientización y
                                 mejorando la infraestructura.</p>
                             </p>
                         </div>
@@ -81,27 +156,87 @@
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    </div>
-    <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-    </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-    </div>
-    <div>
-        <div>
+
+    <!-- BLOQUE AZUL (FOOTER) -->
+    <section class="bg-primary text-white pt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Atención presencial</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+                        <li>
+                            Dirección:
+                            <a href="#" class="text-white text-decoration-underline">
+                                Calle 36 #57-59, Parque Principal
+                            </a>
+                        </li>
+                        <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+                        <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
+                    </ul>
+
+                    <h5 class="fw-bold">Atención telefónica</h5>
+                    <ul class="list-unstyled">
+                        <li>Línea fija: (604) 373 7676</li>
+                        <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+                        <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Atención virtual</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            Página web:
+                            <a href="https://www.itagui.gov.co" target="_blank"
+                                class="text-white text-decoration-underline">
+                                www.itagui.gov.co
+                            </a>
+                        </li>
+                        <li>
+                            Correo de atención ciudadana:
+                            <a href="mailto:serviciociudadano@itagui.gov.co"
+                                class="text-white text-decoration-underline">
+                                serviciociudadano@itagui.gov.co
+                            </a>
+                        </li>
+                        <li>PQRS en línea: Formulario disponible 24/7 para registrar Peticiones, Quejas,
+                            Reclamos y Sugerencias</li>
+                        <li>Chat en vivo disponible desde la web en horario laboral</li>
+                    </ul>
+
+                    <h5 class="fw-bold">Redes sociales oficiales</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA"
+                                class="text-white text-decoration-underline">Facebook: Alcaldía de
+                                Itagüí</a></li>
+                        <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es"
+                                class="text-white text-decoration-underline">Instagram: @itagui.oficial</a>
+                        </li>
+                        <li><a href="https://www.youtube.com/@alcaldiaitagui1"
+                                class="text-white text-decoration-underline">YouTube: Alcaldía de Itagüí</a>
+                        </li>
+                    </ul>
+
+                    <p class="mt-3 mb-0">
+                        En estos canales puedes hacer consultas, seguir transmisiones en vivo y mantenerte
+                        informado.
+                    </p>
+                </div>
+            </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
