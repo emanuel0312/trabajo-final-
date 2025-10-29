@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="Escudo_de_Itagüí.svg.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDUCACION</title>
+
+  <!-- Google Fonts: Alkatra -->
+  <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="pagina.css">
+  <link rel="icon" href="Escudo_de_Itagüí.svg" type="image/png">
+
+  <style>
+    /* Aplicar tipografía Alkatra a toda la página */
+    body, h1, h2, h3, h4, h5, h6, p, a, button, li, input, label, nav, footer {
+      font-family: 'Alkatra', cursive !important;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-dark" style="background-color: #0180c7;">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-white" href="emanue.html">
+      <img src="logo.png" width="200" class="me-2" alt="Logo Itagüí">
+    </a>
+
+    <form class="d-flex mx-auto w-50" role="search">
+      <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+      <button class="btn btn-light" type="submit">Buscar</button>
+    </form>
+
+    <!-- Botón menú lateral -->
+    <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header" style="background-color: #0180c7;">
+        <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body text-center" style="background-color: #0180c7;">
+        <div class="d-grid gap-3">
+          <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
+          <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+          <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="text-center my-5">
+  <h1 class="fw-bold">TURISMO EN ITAGÜÍ</h1>
+
+ <section id="carruselTurismo" class="carousel slide" data-bs-ride="carousel" style="height:80vh;">
+
+  <div class="carousel-inner" style="height:90%;">
+    <div class="carousel-item active" style="height:100%;">
+      <img src="turismo educativo.jpg" class="d-block w-100" alt="Turismo Educativo" style="height:100%; object-fit:cover;">
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+        <h2 class="fw-bold mb-4" style="background: rgba(0,0,0,0.4); padding:10px 20px; border-radius:15px;">
+          TURISMO EDUCATIVO
+        </h2>
+        <button class="btn btn-success px-5 py-2 fs-4 fw-semibold" style="border-radius:25px;"
+          onclick="window.open('pagina turismo educativo1.html','_blank')">
+          DESCUBRIR
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="height:100%;">
+      <img src="turismo natural.jpg" class="d-block w-100" alt="Turismo Natural" style="height:100%; object-fit:cover;">
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+        <h2 class="fw-bold mb-4" style="background: rgba(0,0,0,0.4); padding:10px 20px; border-radius:15px;">
+          TURISMO NATURAL
+        </h2>
+        <button class="btn btn-success px-5 py-2 fs-4 fw-semibold" style="border-radius:25px;"
+          onclick="window.open('natural.html','_blank')">
+          EXPLORAR
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="height:100%;">
+      <img src="turismo comercial.jpg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+        <h2 class="fw-bold mb-4" style="background: rgba(0,0,0,0.4); padding:10px 20px; border-radius:15px;">
+          TURISMO COMERCIAL
+        </h2>
+        <button class="btn btn-success px-5 py-2 fs-4 fw-semibold" style="border-radius:25px;"
+          onclick="window.open('comercial.html','_blank')">
+          CONOCER
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carruselTurismo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carruselTurismo" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- BLOQUE AZUL (FOOTER) -->
+  <section class="bg-primary text-white py-5 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5 class="fw-bold">Atención presencial</h5>
+          <ul class="list-unstyled mb-4">
+            <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+            <li>
+              Dirección:
+              <a href="#" class="text-white text-decoration-underline">
+                Calle 36 #57-59, Parque Principal
+              </a>
+            </li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+            <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
+          </ul>
+
+          <h5 class="fw-bold">Atención telefónica</h5>
+          <ul class="list-unstyled">
+            <li>Línea fija: (604) 373 7676</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="fw-bold">Atención virtual</h5>
+          <ul class="list-unstyled mb-4">
+            <li>
+              Página web:
+              <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">
+                www.itagui.gov.co
+              </a>
+            </li>
+            <li>
+              Correo de atención ciudadana:
+              <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">
+                serviciociudadano@itagui.gov.co
+              </a>
+            </li>
+            <li>PQRS en línea: Formulario disponible 24/7 para registrar Peticiones, Quejas, Reclamos y Sugerencias</li>
+            <li>Chat en vivo disponible desde la web en horario laboral</li>
+          </ul>
+
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook: Alcaldía de Itagüí</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram: @itagui.oficial</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube: Alcaldía de Itagüí</a></li>
+          </ul>
+
+          <p class="mt-3 mb-0">
+            En estos canales puedes hacer consultas, seguir transmisiones en vivo y mantenerte informado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
