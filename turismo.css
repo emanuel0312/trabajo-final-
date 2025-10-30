@@ -1,56 +1,21 @@
-.Itagui {
-    display: block;
-    margin: 0 auto;
-    border-radius: 15px;
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* Animación al pasar el cursor por las imágenes */
+.img-fluid {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.descripcion {
-    text-align: left;
-    color: #a2b7c0;
-    font-size: 12px;
+.img-fluid:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+/* Animación para los botones */
+.btn {
+  transition: all 0.3s ease;
 }
 
-.fecha {
-    text-align: left;
-    color: #a2b7c0;
-    font-size: 10px;
-}
-
-.titulito {
-    font-family: 'Alkatra', sans-serif;
-    text-align: left;
-    color: #000000;
-    font-size: 27px;
-    font-weight: bold;
-}
-
-p {
-    font-family: 'Alkatra', sans-serif;
-    text-align: left;
-    color: #000000;
-    font-size: 16px;
-}
-
-.h1 {
-    margin-top: 20px;
-    font-family: 'Alkatra', sans-serif;
-    text-align: left;
-    color: #425eff;
-    font-size: 150%;
-    font-weight: bold;
-}
-
-.titulitogrande {
-    margin-top: 15px;
-    font-family: 'Alkatra', sans-serif;
-    text-align: left;
-    color: #000000;
-    font-size: 60px;
-    font-weight: bold;
-    color: #0180c7;
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
