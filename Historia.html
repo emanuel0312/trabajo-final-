@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="Historia.css">
+
+    <style>
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: url('Imagenitaguihd.jpg') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+            width: 25px;
+            height: 25px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-control-prev {
+            left: 40px;
+        }
+
+        .carousel-control-next {
+            right: 40px;
+        }
+
+        @media (max-width: 768px) {
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 45px;
+                height: 45px;
+                left: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark" style="background-color: #0180c7;">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">
+                <img src="Itagui.jpeg" width="200" class="me-2" alt="Logo Itagüí">
+            </a>
+
+            <form class="d-flex mx-auto w-50" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-light" type="submit">Buscar</button>
+            </form>
+
+            <!-- Botón menú lateral -->
+            <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header" style="background-color: #0180c7;">
+                    <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-center" style="background-color: #0180c7;">
+                    <div class="d-grid gap-3">
+                        <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
+                        <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+                        <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
+        <div id="carouselTextos" class="carousel slide w-100 h-100" data-bs-ride="carousel" data-bs-interval="6000">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="hero-content">
+                        <h2 class="fw-bold mb-4" style="font-family: 'Alkatra', sans-serif; font-size: 2.3rem;">
+                            Bienvenidos a Itagüí en Ruta
+                        </h2>
+                        <p class="fs-5 px-3" style="line-height: 1.7;">
+                            Somos una iniciativa comprometida con mostrar lo mejor de Itagüí: su gente, su cultura,
+                            su historia y sus tesoros turísticos. Creemos que nuestra ciudad tiene muchísimo que ofrecer
+                            y queremos que locales y visitantes vivan experiencias auténticas en cada rincón del
+                            municipio.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="hero-content">
+                        <h2 class="fw-bold mb-4" style="font-family: 'Alkatra', sans-serif; font-size: 2.3rem;">
+                            Itagüí: historia y evolución
+                        </h2>
+                        <p class="fs-5 px-3" style="line-height: 1.7;">
+                            Itagüí, ubicado en el Valle de Aburrá (Antioquia), fue fundado el 26 de agosto de 1832.
+                            Su nombre proviene de un antiguo cacique indígena. Gracias a su ubicación estratégica,
+                            creció como un importante centro comercial e industrial. Hoy es un municipio moderno,
+                            cultural y clave en el desarrollo del área metropolitana de Medellín.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTextos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTextos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="bg-primary text-white pt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Atención presencial</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+                        <li>
+                            Dirección:
+                            <a href="#" class="text-white text-decoration-underline">
+                                Calle 36 #57-59, Parque Principal
+                            </a>
+                        </li>
+                        <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+                        <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
+                    </ul>
+
+                    <h5 class="fw-bold">Atención telefónica</h5>
+                    <ul class="list-unstyled">
+                        <li>Línea fija: (604) 373 7676</li>
+                        <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+                        <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Atención virtual</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            Página web:
+                            <a href="https://www.itagui.gov.co" target="_blank"
+                                class="text-white text-decoration-underline">www.itagui.gov.co</a>
+                        </li>
+                        <li>
+                            Correo de atención ciudadana:
+                            <a href="mailto:serviciociudadano@itagui.gov.co"
+                                class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a>
+                        </li>
+                        <li>PQRS en línea: disponible 24/7</li>
+                        <li>Chat en vivo disponible desde la web en horario laboral</li>
+                    </ul>
+
+                    <h5 class="fw-bold">Redes sociales oficiales</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA"
+                                class="text-white text-decoration-underline">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es"
+                                class="text-white text-decoration-underline">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/@alcaldiaitagui1"
+                                class="text-white text-decoration-underline">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
