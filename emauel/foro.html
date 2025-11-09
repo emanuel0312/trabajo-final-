@@ -2,6 +2,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <style>
+        /* Estilo del botón de regreso */
+    .btn-back {
+      position: absolute;
+      bottom: -430px;
+      left: 20px;
+      background-color: #013757;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .btn-back:hover {
+      background-color: #0180c7;
+      transform: scale(1.1);
+    }
+  </style>
   <link rel="icon" href="escudo ema.svg" type="image/png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +69,7 @@
           <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
           <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
           <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+          <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Encuentranos</a>
         </div>
       </div>
     </div>
@@ -130,15 +156,16 @@
           <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram: @itagui.oficial</a></li>
           <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube: Alcaldía de Itagüí</a></li>
         </ul>
-
-        <p class="mt-3 mb-0">
-          En estos canales puedes hacer consultas, seguir transmisiones en vivo y mantenerte informado.
-        </p>
       </div>
     </div>
   </div>
 </section>
-
+</section>
+    <!-- BOTÓN DE REGRESO -->
+    <a href="emanue.html" class="btn-back" title="Volver al inicio">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+  </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
