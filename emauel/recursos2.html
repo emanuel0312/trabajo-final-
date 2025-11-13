@@ -3,7 +3,7 @@
 <html lang="es">
 <head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recursos2</title>
+<title>Recursos</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,11 +39,34 @@
     background-color: #0180c7;
     transform: scale(1.1);
   }
+      /* 🔹 Loader azul centrado */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
+  <!-- 🔹 Loader (círculo de carga azul) -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
   <!-- NAVBAR -->
   <nav class="navbar navbar-dark" style="background-color: #0180c7;">
     <div class="container">
@@ -78,38 +101,54 @@
     </div>
   </nav>
 
-  <!-- CONTENIDO -->
-  <section class="row g-0 align-items-center" style="margin-top: -10px;">
-    <div class="col-md-6 p-0">
-      <img src="natu.jpg" alt="Itagüí"
-        class="img-fluid w-100"
-        style="object-fit: cover; height: 100vh; border: none; margin: 0; padding: 0;">
-    </div>
+<!-- CONTENIDO -->
+<section class="row g-0 align-items-center" style="margin-top: -10px;">
+  <div class="col-md-6 p-0">
+    <img src="natu.jpg" alt="Itagüí"
+      class="img-fluid w-100"
+      style="object-fit: cover; height: 100vh; border: none; margin: 0; padding: 0;">
+  </div>
 
-    <div class="col-md-6 p-5 text-center">
-      <h3 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="recursos1.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
-        Recursos Naturales
-        <a href="recursos1.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
-      </h3>
+  <div class="col-md-6 p-5 text-center">
+    <h3 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
+      <a href="recursos1.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
+      Recursos Naturales
+      <a href="recursos1.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
+    </h3>
 
-      <p>
-        <strong class="text-primary">Acuíferos y fuentes hídricas</strong><br>
-        En el corregimiento El Manzanillo hay 13 acueductos veredales y 7 plantas de tratamiento que aseguran el abastecimiento de agua potable. Además, la quebrada La Jabalcona, de unos 4,4 km, nace en la zona rural y desemboca en el río Medellín, aunque ha sido canalizada por efectos urbanos.
-      </p>
+    <p>
+      <strong class="text-primary">🌊 Acuíferos y fuentes hídricas</strong><br>
+      En el corregimiento El Manzanillo existen 13 acueductos veredales y 7 plantas de tratamiento que garantizan el suministro de agua potable a las comunidades rurales. 
+      Entre las principales fuentes hídricas se encuentra la <strong>quebrada La Jabalcona</strong>, que recorre aproximadamente 4,4 kilómetros desde su nacimiento en la zona rural hasta su desembocadura en el río Medellín. 
+      Aunque ha sido canalizada por el crecimiento urbano, continúa siendo una fuente vital para el ecosistema local y forma parte de proyectos de restauración ecológica impulsados por la <a href="https://www.itagui.gov.co/" target="_blank">Alcaldía de Itagüí</a> y el <a href="https://www.metropol.gov.co/" target="_blank">Área Metropolitana del Valle de Aburrá</a>.
+    </p>
 
-      <p>
-        <strong class="text-primary">Zonas protegidas y biodiversidad</strong><br>
-        El municipio cuenta con nueve áreas libres de fauna silvestre, que incluyen zonas como las cuchillas de las Baldías y el Cerro del Padre Amaya, delicadas fuentes de agua. Asimismo, destacan espacios como el humedal Ditaires, objeto de proyectos de recuperación ambiental, y el vivero municipal con 3.000 m² para reforestación.
-      </p>
+    <p>
+      <strong class="text-primary">🌿 Zonas protegidas y biodiversidad</strong><br>
+      El municipio cuenta con una amplia riqueza natural distribuida en áreas de reserva y protección ambiental. 
+      Entre ellas destacan las <strong>Cuchillas de las Baldías</strong> y el <strong>Cerro del Padre Amaya</strong>, zonas de alta importancia ecológica que funcionan como pulmones verdes y reservorios de biodiversidad.  
+      En estos espacios habitan especies como zarigüeyas, ardillas, aves nativas y una gran variedad de plantas endémicas del Valle de Aburrá.
+    </p>
 
-      <p>
-        <strong class="text-primary">Áreas verdes urbanas</strong><br>
-        El Parque Ecológico El Pomar, en el barrio San Francisco de Paula, ofrece un entorno de árboles y jardines donde se realizan campañas ambientales comunitarias.
-      </p>
-    </div>
-  </section>
+    <p>
+      También sobresale el <strong>Humedal Ditaires</strong>, considerado un punto clave para la conservación de aves y anfibios. Este humedal está en proceso de recuperación, con labores de limpieza, revegetalización y educación ambiental lideradas por la comunidad local y la administración municipal.  
+      El <strong>Vivero Municipal</strong> de Itagüí, con más de 3.000 m², produce miles de árboles cada año para campañas de reforestación y embellecimiento urbano.
+      <br>
+      <a href="https://www.itagui.gov.co/portal/sostenibilidad-y-ambiente" target="_blank">Más sobre sostenibilidad ambiental en Itagüí</a>
+    </p>
 
+    <p>
+      <strong class="text-primary">🌳 Áreas verdes urbanas y educación ambiental</strong><br>
+      En el entorno urbano, Itagüí ha promovido la creación y mantenimiento de parques ecológicos y zonas verdes comunitarias. 
+      El <strong>Parque Ecológico El Pomar</strong>, ubicado en el barrio San Francisco de Paula, es un ejemplo de espacio diseñado para la recreación, el aprendizaje ambiental y la convivencia ciudadana. 
+      Allí se desarrollan actividades como jornadas de limpieza, siembra de árboles y talleres de educación ambiental dirigidos a niños y jóvenes.
+    </p>
+
+    <p>
+      Además, la ciudad impulsa campañas como <em>“Itagüí Verde y Sostenible”</em>, cuyo objetivo es fortalecer la conciencia ambiental y promover prácticas como el reciclaje, el ahorro de agua y la movilidad limpia mediante el uso de bicicletas y transporte ecológico.  
+    </p>
+  </div>
+</section>
   <!-- BLOQUE AZUL (FOOTER) -->
   <section class="bg-primary text-white py-5 mt-auto position-relative">
     <div class="container">
@@ -157,7 +196,13 @@
       </a>
     </div>
   </section>
-
+    <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

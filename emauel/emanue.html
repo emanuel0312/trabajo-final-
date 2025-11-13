@@ -10,9 +10,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="emanue.css">
     <link rel="icon" href="Escudo_de_Itagüí.svg" type="image/png">
+  <style>
+    /* 🔹 Loader azul centrado */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+  <!-- 🔹 Loader (círculo de carga azul) -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
   <!-- 🔹 Navbar principal -->
   <nav class="navbar navbar-dark" style="background-color: #0180c7;">
     <div class="container">
@@ -57,21 +83,42 @@
   <section id="carruselTurismo" class="carousel slide" data-bs-ride="carousel" style="height:60vh;">
     <div class="carousel-inner" style="height:90%;">
       <div class="carousel-item active" style="height:100%;">
+        <a href="https://www.itagui.gov.co/uploads/entidad/control/5989d-informe-de-rendicion-de-cuentas-general-2025.pdf">
+        <img src="publicidad0.jpeg" class="d-block w-100" alt="Turismo Educativo" style="height:100%; object-fit:cover;">
+        </a>
+      </div>
+      <div class="carousel-item active" style="height:100%;">
+        <a href="https://www.itagui.gov.co/uploads/entidad/control/5989d-informe-de-rendicion-de-cuentas-general-2025.pdf">
         <img src="publicidad1.png" class="d-block w-100" alt="Turismo Educativo" style="height:100%; object-fit:cover;">
+        </a>
       </div>
       <div class="carousel-item" style="height:100%;">
+        <a href="https://www.itagui.gov.co/uploads/entidad/control/5989d-informe-de-rendicion-de-cuentas-general-2025.pdf">
         <img src="publicidad2.png" class="d-block w-100" alt="Turismo Natural" style="height:100%; object-fit:cover;">
+        </a>
       </div>
       <div class="carousel-item" style="height:100%;">
+        <a href="https://www.pyphoy.com/itagui/particulares">
         <img src="punlicidad3.png" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+        </a>
       </div>
-          <div class="carousel-item" style="height:100%;">
-        <img src="publicidad4.jpg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
-      </div>
-         <div class="carousel-item" style="height:100%;">
-        <img src="publicidad5.jpg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
-      </div>
+        <div class="carousel-item" style="height:100%;">
+          <a href="https://itagui.gov.co/sitio/pagina/rit">
+         <img src="publicidad4.jpg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+        </div>
+       <div class="carousel-item" style="height:100%;">
+          <a href="https://itagui.gov.co/kcfinder/upload/files/pdf/MANUAL_DE_IDENTIFICACIN_VISUAL_ALCALDIA_DE_ITAG_2024-V2.pdf">
+         <img src="publicidad5.jpg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+       </div>
+        <div class="carousel-item" style="height:100%;">
+          <a href="https://www.fitchratings.com/entity/municipio-de-itagui-88430466">
+         <img src="publicidad6.jpeg" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+       </div>
     </div>
+    
 
     <button class="carousel-control-prev" type="button" data-bs-target="#carruselTurismo" data-bs-slide="prev">
       <span class="carousel-control-prev-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
@@ -95,8 +142,8 @@
     </div>
   </section>
 
-  <!-- 🔹 Sección de Movilización -->
-<section class="py-5 bg-light">
+<!-- 🔹 Sección de Movilización -->
+<section class="py-5 bg-white">
   <div class="container text-center">
     <h2 class="fw-bold mb-4 text-primary">Movilización en Itagüí</h2>
     <p class="mb-5 text-secondary">
@@ -116,7 +163,7 @@
             <p class="card-text text-muted">
               Rutas de buses urbanos e integrados al metro que conectan con diferentes sectores de la ciudad y municipios cercanos.
             </p>
-            <a href="https://www.metrodemedellin.gov.co/" target="_blank" class="btn btn-primary">Ver rutas</a>
+            <a href="ubicacion de buses.html" class="btn btn-primary">Ver rutas</a>
           </div>
         </div>
       </div>
@@ -148,7 +195,7 @@
             <p class="card-text text-muted">
               Fomentamos el uso de bicicletas, senderos seguros y transporte eléctrico para un futuro más limpio y saludable.
             </p>
-            <a href="https://www.itagui.gov.co" target="_blank" class="btn btn-warning text-dark fw-bold">Ver proyectos</a>
+            <a href="pagina de biciclestas.html"  class="btn btn-warning text-dark fw-bold">Ver proyectos</a>
           </div>
         </div>
       </div>
@@ -156,8 +203,8 @@
   </div>
 </section>
 
-<!-- 🔹 Contenido principal -->
-<div class="container flex-grow-1 text-center mt-5">
+ <!-- 🔹 Contenido principal -->
+ <div class="container flex-grow-1 text-center mt-5">
   <div class="row justify-content-center">
     <div class="col-md-5 mb-4 d-flex justify-content-center">
       <div class="ratio ratio-16x9 w-100" style="max-width: 560px;">
@@ -241,7 +288,14 @@
       </div>
     </div>
   </section>
-
+    <!-- 🔹 Script para ocultar el loader al cargar -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

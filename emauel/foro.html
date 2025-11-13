@@ -27,6 +27,24 @@
     background-color: #0180c7;
     transform: scale(1.1);
   }
+ /* 🔹 Loader azul centrado */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    } 
 </style>
   <link rel="icon" href="escudo ema.svg" type="image/png">
   <meta charset="UTF-8">
@@ -43,8 +61,14 @@
   <link rel="icon" href="Escudo_de_Itagüí.svg" type="image/png">
 </head>
 <body class="d-flex flex-column min-vh-100">
-
-<nav class="navbar navbar-dark" style="background-color: #0180c7;">
+  <!-- 🔹 Loader (círculo de carga azul) -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+ <!-- navar -->
+ <nav class="navbar navbar-dark" style="background-color: #0180c7;">
   <div class="container">
     <a class="navbar-brand fw-bold text-white" href="emanue.html">
       <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
@@ -77,34 +101,57 @@
   </div>
 </nav>
 
-<!-- información -->
+<!-- INFORMACIÓN -->
 <section class="row g-0 align-items-center" style="margin-top: -10px;">
   <div class="col-md-6 p-0">
-  <img src="parqu.jpg" alt="Itagüí" 
-       class="img-fluid w-100" 
-       style="object-fit: cover; height: 100vh; border: none; margin: 0; padding: 0;">
-</div>
+    <img src="parqu.jpg" alt="Itagüí" 
+         class="img-fluid w-100" 
+         style="object-fit: cover; height: 100vh; border: none; margin: 0; padding: 0;">
+  </div>
 
   <div class="col-md-6 p-5 text-center">
     <h3 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
       Foro
     </h3>
-      <p>
-    <strong class="text-primary">Foro de Salud y Bienestar</strong>
-    <br>◆ Dirigido a personas interesadas en salud pública, salud mental y prevención.
-    <br>◆ Se abordan temas como el acceso a servicios médicos, campañas de vacunación y salud emocional.
-    <br>◆ Participan profesionales de la salud, pacientes, cuidadores y comunidad en general.
-      <p>
 
-    <strong class="text-primary">Foro Educativo Municipal</strong>
-    <br>◆ Reúne a docentes, padres, estudiantes y directivos para tratar temas de calidad educativa, convivencia y tecnología.
-    <br>◆ Se presentan propuestas para mejorar la infraestructura, recursos académicos y becas.<p>
-  <p>
-    <strong class="text-primary">Foro de Juventud y Primera Infancia</strong>
-    <br>◆ Espacio para jóvenes y familias donde se discuten temas como derechos de la infancia, educación inclusiva y participación ciudadana.
-    <br>◆ Se organizan talleres, paneles y conversatorios.
-    <p>
-</div>
+    <section class="container my-4 text-start">
+
+      <!-- 🩺 Foro de Salud y Bienestar -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Foro de Salud y Bienestar</h4>
+        <p class="text-muted mb-1"><em>Fecha: 10 de mayo, 2025</em></p>
+        <p>
+          Este foro está dirigido a ciudadanos interesados en la <strong>salud pública, la salud mental y la prevención</strong> de enfermedades.  
+          En estos espacios se analizan temas como el acceso a servicios médicos, las campañas de vacunación y la importancia del acompañamiento emocional.  
+          Participan <strong>profesionales de la salud, pacientes, cuidadores y líderes comunitarios</strong> para promover una cultura de autocuidado y bienestar integral en el municipio.
+        </p>
+      </article>
+
+      <!-- 🎓 Foro Educativo Municipal -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Foro Educativo Municipal</h4>
+        <p class="text-muted mb-1"><em>Fecha: 20 de junio, 2025</em></p>
+        <p>
+          El <strong>Foro Educativo Municipal de Itagüí</strong> reúne a docentes, estudiantes, padres de familia y directivos para debatir sobre la <strong>calidad educativa, convivencia escolar e innovación pedagógica</strong>.  
+          En estos encuentros se presentan propuestas para fortalecer la infraestructura educativa, mejorar los recursos académicos y ampliar los programas de becas.  
+          Además, se destacan proyectos de tecnología educativa y estrategias de inclusión escolar que benefician a la comunidad estudiantil.
+        </p>
+      </article>
+
+      <!-- 👦 Foro de Juventud y Primera Infancia -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Foro de Juventud y Primera Infancia</h4>
+        <p class="text-muted mb-1"><em>Fecha: 5 de julio, 2025</em></p>
+        <p>
+          Este espacio está enfocado en los <strong>derechos de los niños, niñas y jóvenes</strong> del municipio, promoviendo la participación ciudadana y el desarrollo integral.  
+          A través de talleres, paneles y conversatorios, se abordan temas como la <strong>educación inclusiva, la participación juvenil y la protección social</strong>.  
+          También se impulsa el trabajo conjunto entre instituciones, familias y organizaciones sociales para garantizar entornos seguros y saludables.
+        </p>
+      </article>
+
+    </section>
+  </div>
+</section>
 
 <!-- BLOQUE AZUL (FOOTER) -->
 <section class="bg-primary text-white py-5 mt-auto">
@@ -166,7 +213,14 @@
     <a href="emanue.html" class="btn-back" title="Volver al inicio">
       <i class="bi bi-arrow-left"></i>
     </a>
-  </footer>
+        <!-- 🔹 Script para ocultar el loader al cargar -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

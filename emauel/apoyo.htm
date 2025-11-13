@@ -2,7 +2,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<style>
+    <link rel="icon" href="escudo ema.svg" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apoyo</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons (necesario para las flechas) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="emanue.css">
+  <link rel="icon" href="Escudo_de_Itagüí.svg" type="image/png">
+ <style>
   /* Estilo del botón de regreso */
   .btn-back {
     position: fixed; /* <- fijo en la pantalla, no se mueve */
@@ -27,23 +40,34 @@
     background-color: #0180c7;
     transform: scale(1.1);
   }
-</style>
-  <link rel="icon" href="escudo ema.svg" type="image/png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apoyo</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons (necesario para las flechas) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="emanue.css">
-  <link rel="icon" href="Escudo_de_Itagüí.svg" type="image/png">
+      /* 🔹 Loader azul centrado */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
-
+ <body class="d-flex flex-column min-vh-100">
+    <!-- 🔹 Loader (círculo de carga azul) -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  <!-- navar -->
 <nav class="navbar navbar-dark" style="background-color: #0180c7;">
   <div class="container">
     <a class="navbar-brand fw-bold text-white" href="emanue.html">
@@ -77,7 +101,7 @@
   </div>
 </nav>
 
-<!-- información -->
+<!-- INFORMACIÓN -->
 <section class="row g-0 align-items-center" style="margin-top: -10px;">
   <div class="col-md-6 p-0">
     <img src="paz.jpg" alt="Itagüí" 
@@ -87,22 +111,49 @@
 
   <div class="col-md-6 p-5 text-center">
     <h3 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-      Apoyo
+      Apoyo en Itagüí
     </h3>
 
-    <p>
-      <strong class="text-primary">Apoyo de Salud Mental, Nutrición y Prevención</strong>
-      <br>◆ Itagüí ofrece campañas permanentes para cuidar la salud mental en colegios, barrios y centros de salud.
-      <br>◆ Se promueve una buena nutrición a través de programas escolares, comedores comunitarios y asesorías alimenticias.
-      <br>◆ Hay jornadas de vacunación, chequeos médicos y actividades para la prevención de enfermedades crónicas y contagiosas.
-    </p>
+    <section class="container my-4 text-start">
 
-    <p>
-      <strong class="text-primary">Apoyo de Instituciones Educativas</strong>
-      <br>◆ En Itagüí encontrarás colegios públicos y privados que ofrecen educación básica, media y técnica.
-      <br>◆ También hay presencia del SENA y centros para formación artística, cultural y deportiva.
-      <br>◆ Algunos planteles tienen convenios con universidades del Valle de Aburrá para continuar estudios superiores.
-    </p>
+      <!-- 🧠 Salud mental -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Apoyo en Salud Mental, Nutrición y Prevención</h4>
+        <p class="text-muted mb-1"><em>Fecha: 30 de mayo, 2025</em></p>
+        <p>
+          El municipio de <strong>Itagüí</strong> desarrolla campañas permanentes de <strong>salud mental</strong> dirigidas a estudiantes, familias y comunidades, con el fin de fortalecer el bienestar emocional y prevenir conductas de riesgo.  
+          A través de sus <strong>centros de salud</strong> y programas educativos, se ofrecen charlas, talleres y acompañamiento psicológico gratuito.
+          También se promueven hábitos de alimentación saludable mediante los <strong>comedores comunitarios</strong> y asesorías nutricionales en instituciones educativas.
+        </p>
+        <a href="https://www.itagui.gov.co/portal/salud" target="_blank" class="text-decoration-underline">Más información sobre salud y bienestar en Itagüí</a>
+      </article>
+
+      <!-- 🍎 Nutrición y prevención -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Programas de Nutrición y Prevención Comunitaria</h4>
+        <p class="text-muted mb-1"><em>Fecha: 18 de mayo, 2025</em></p>
+        <p>
+          Desde la <strong>Secretaría de Salud</strong>, Itagüí impulsa jornadas de vacunación, controles médicos, chequeos nutricionales y campañas de prevención contra enfermedades crónicas y contagiosas.  
+          Estas actividades se realizan en barrios, parques y colegios para asegurar la participación de toda la comunidad.  
+          Además, el programa <em>“Itagüí Te Cuida”</em> busca fortalecer el acceso a servicios médicos y fomentar una cultura de autocuidado.
+        </p>
+        <a href="https://www.itagui.gov.co/portal/salud-publica" target="_blank" class="text-decoration-underline">Ver más sobre programas de prevención y nutrición</a>
+      </article>
+
+      <!-- 🎓 Educación -->
+      <article class="mb-4">
+        <h4 class="fw-bold text-primary">Apoyo Educativo e Institucional</h4>
+        <p class="text-muted mb-1"><em>Fecha: 5 de mayo, 2025</em></p>
+        <p>
+          En Itagüí funcionan diversas <strong>instituciones educativas públicas y privadas</strong> que ofrecen formación básica, media y técnica.  
+          Además, el municipio cuenta con sedes del <strong><a href="https://www.sena.edu.co/" target="_blank" class="text-primary">SENA</a></strong> y centros de formación artística, cultural y deportiva.  
+          Algunos colegios mantienen convenios con universidades del Valle de Aburrá para facilitar la continuidad de estudios superiores.  
+          Todo esto hace parte de la estrategia <em>“Itagüí Educa con Calidad”</em>.
+        </p>
+        <a href="https://www.itagui.gov.co/portal/educacion" target="_blank" class="text-decoration-underline">Conoce los programas educativos de Itagüí</a>
+      </article>
+
+    </section>
   </div>
 </section>
 
@@ -165,7 +216,14 @@
     <a href="emanue.html" class="btn-back" title="Volver al inicio">
       <i class="bi bi-arrow-left"></i>
     </a>
-  </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+      <!-- 🔹 Script para ocultar el loader al cargar -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
