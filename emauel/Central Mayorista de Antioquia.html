@@ -86,6 +86,16 @@
       opacity: 0;
       pointer-events: none;
     }
+        #mapaHumedal {
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+        #mapaHumedal {
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
 </style>
 </head>
 
@@ -140,43 +150,64 @@
     <div class="col-md-6">
       <img src="mayorista.jpg" alt="Central Mayorista de Antioquia" class="img-section">
     </div>
-
     <div class="col-md-6 section-info text-center">
-      <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="Fiestas de la Industria, el Comercio y la Cultura.html">
-          <i class="bi bi-arrow-left-circle-fill me-3"></i>
-        </a>
-        Turismo Comercial
-        <a href="Centro Internacional de la Moda.html">
-          <i class="bi bi-arrow-right-circle-fill ms-3"></i>
-        </a>
-      </h4>
+   <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
+    <a href="Fiestas de la Industria, el Comercio y la Cultura.html">
+      <i class="bi bi-arrow-left-circle-fill me-3"></i>
+    </a>
+    Turismo Comercial
+    <a href="Centro Internacional de la Moda.html">
+      <i class="bi bi-arrow-right-circle-fill ms-3"></i>
+    </a>
+   </h4>
 
-      <h2 class="fw-bold text-center mb-3">Central Mayorista de Antioquia</h2>
+   <h2 class="fw-bold text-center mb-3">Central Mayorista de Antioquia</h2>
 
-      <p class="descripcion text-start">
-        <strong>Descripción:</strong> Uno de los principales centros de abastecimiento del país, con una amplia oferta de alimentos, productos agrícolas y mercancías al por mayor.
-      </p>
+   <p class="descripcion text-start">
+    <strong>Descripción:</strong> La Central Mayorista es uno de los puntos comerciales más importantes del país, donde se abastecen miles de negocios, restaurantes y familias cada día.
+    Ofrece alimentos frescos, productos agrícolas, víveres, carnes y mercancía variada.
+   </p>
 
-      <p class="descripcion text-start">
-        <strong>¿Qué lo hace especial?</strong><br>
-        • Más de 700 locales de frutas, verduras, carnes, abarrotes y productos importados.<br>
-        • Excelente infraestructura logística.<br>
-        • Precios al por mayor y al detal.
-      </p>
+   <p class="descripcion text-start">
+    <strong>Historia:</strong><br>
+    • Fue fundada en la década de 1980 para organizar el comercio mayorista del Valle de Aburrá.<br>
+    • Nació como una solución al caos del antiguo “Guayaquil” de Medellín.<br>
+    • Hoy es considerada una de las centrales de abastecimiento más grandes de Colombia.
+   </p>
 
-      <p class="descripcion text-start">
-        <strong>Dirección:</strong> 
-        <a href="https://www.google.com/maps/place/Central+Mayorista+de+Antioquia/" target="_blank" class="text-primary">
-          Cl. 85 #48 - 01, Itagüi, Antioquia
-        </a><br>
-        <strong>Sitio web:</strong> 
-        <a href="https://lamayorista.com.co/" target="_blank" class="text-primary">
-          https://lamayorista.com.co/
-        </a>
-      </p>
-    </div>
-  </section>
+   <p class="descripcion text-start">
+    <strong>Datos interesantes:</strong><br>
+    • Más de <strong>7.000 empleos directos</strong> y miles indirectos.<br>
+    • Comercializa más de <strong>200 toneladas de alimentos</strong> al día.<br>
+    • Es un punto estratégico para el comercio del sur del país.
+   </p>
+
+   <p class="descripcion text-start">
+    <strong>¿Qué lo hace especial?</strong><br>
+    • Más de 700 locales de frutas, carnes, abarrotes y productos importados.<br>
+    • Precios al por mayor y al detal.<br>
+    • Zona de carga pesada y logística especializada.<br>
+    • Seguridad, vigilancia y parqueaderos amplios.
+   </p>
+
+   <p class="descripcion text-start">
+    <strong>Dirección:</strong> 
+    <a href="https://www.google.com/maps/place/Central+Mayorista+de+Antioquia/" 
+       target="_blank" class="text-primary">
+      Cl. 85 #48 - 01, Itagüí, Antioquia
+    </a><br>
+
+    <strong>Sitio web oficial:</strong> 
+    <a href="https://lamayorista.com.co/" 
+       target="_blank" class="text-primary">
+      https://lamayorista.com.co/
+    </a>
+   </p>
+      <!-- Mapa -->
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <div id="mapaHumedal"></div>
+ </div>
+
 
   <!-- FOOTER -->
 <footer class=" bg-primary text-white py-5">
@@ -228,13 +259,23 @@
         </div>
       </div>
     </div>
-      <script>
-    window.addEventListener("load", () => {
+    <script>
+     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
-  </script>
+    </script>
+    <script>
+     var mapa = L.map('mapaHumedal').setView([6.167585, -75.6280918], 17);
+
+     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
+
+     L.marker([6.167585, -75.6280918])
+      .addTo(mapa)
+      .bindPopup("Humedal Ditaires - Área Protegida Urbana")
+      .openPopup();
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

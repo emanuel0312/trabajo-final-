@@ -18,6 +18,10 @@
    <!-- Bootstrap Icons (necesario para las flechas) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Leaflet (MAPA) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <style>
     body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
       font-family: 'Alkatra', cursive !important;
@@ -93,6 +97,11 @@
       opacity: 0;
       pointer-events: none;
     }
+     #mapaHumedal {
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -137,7 +146,7 @@
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch" style="height:850px;">
+  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch" style="height:950px;">
    <!-- Imagen -->
    <div class="col-md-6">
     <img src="moda.jpg" alt="Centro Internacional de la Moda" class="img-section">
@@ -171,10 +180,25 @@
    <a href="https://www.instagram.com/supercentrodelamoda/?hl=es" target="_blank" class="text-primary">
    https://www.instagram.com/supercentrodelamoda/?hl=es</a>
    </p>
+   <p class="descripcion text-start">
+  <strong>Historia:</strong> Este sector comercial comenzó a consolidarse a finales de los años 90, 
+  cuando varias fábricas y talleres textiles se establecieron en la zona. Con el tiempo, se convirtió 
+  en un punto clave para la venta de ropa al por mayor en el Valle de Aburrá.
+</p>
+
+<p class="descripcion text-start">
+  <strong>Importancia:</strong> Hoy en día es un lugar reconocido por ofrecer ropa a precios de fábrica, 
+  atrayendo compradores de toda Colombia y generando empleo para muchas familias de Itagüí.
+</p>
+
+      <!-- Mapa -->
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <div id="mapaHumedal"></div>
+
    </div>
   </section>
   <!-- FOOTER -->
-  <footer class="text-white py-5 mt-auto">
+  <footer class="text-white py-5 mt-auto" style="margin-top:-700px;">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mb-4">
@@ -230,13 +254,23 @@
     <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
       <i class="bi bi-arrow-left"></i>
     </a>
-          <!-- 🔹 Script para ocultar el loader al cargar -->
+  </footer>
+     <!-- 🔹 Script para ocultar el loader al cargar -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
+    // mapa loader
+    var mapa = L.map('mapaHumedal').setView([6.188324891268682, -75.596859345881], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
+
+    L.marker([6.188324891268682, -75.596859345881])
+      .addTo(mapa)
+      .bindPopup("Centro de la moda")
+      .openPopup();
   </script>
     <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
