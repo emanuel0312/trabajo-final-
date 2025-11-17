@@ -170,20 +170,38 @@
   <!-- CONTENEDOR PRINCIPAL -->
   <div class="content-container">
     <!-- CAJA DE INFORMACIÓN -->
-    <div class="info-box">
-      <h4 class="fw-bold text-primary">Información básica</h4>
-      <p>
-        Aquí puedes agregar datos generales de Itagüí: ubicación, población, historia,
-        lugares emblemáticos, cultura o cualquier descripción importante que quieras mostrar
-        junto al mapa.
-      </p>
-      <p>
-        Ejemplo:  
-        Itagüí es un municipio del departamento de Antioquia, ubicado al sur del Valle de Aburrá.
-        Es reconocido por su desarrollo industrial, su cultura vibrante y su gente trabajadora.
-      </p>
-    </div>
+<div class="info-box">
+  <h4 class="fw-bold text-primary">Puntos de atención en Itagüí</h4>
+  <p>
+    En Itagüí contamos con diversos puntos de atención para brindar apoyo, trámites,
+    orientación y servicios esenciales a la comunidad. Estos puntos están distribuidos
+    estratégicamente para facilitar el acceso de los ciudadanos a servicios como salud,
+    justicia, movilidad, tecnología y atención administrativa.
+  </p>
 
+  <h5 class="fw-bold mt-3"> Principales puntos:</h5>
+
+  <ul>
+    <li><strong>CAC — Centro de Atención a la Ciudadanía:</strong> Atención presencial en trámites generales, radicación y orientación.</li>
+
+    <li><strong>Casa de Justicia:</strong> Servicios de conciliación, apoyo jurídico, orientación psicológica y resolución de conflictos.</li>
+
+    <li><strong>Oficina de Trámites y Documentos:</strong> Gestión de documentos, certificaciones y trámites ciudadanos.</li>
+
+    <li><strong>Hospital del Sur:</strong> Atención médica general, urgencias y servicios hospitalarios.</li>
+
+    <li><strong>Secretaría de Salud:</strong> Programas de vacunación, campañas de prevención, atención pública en salud.</li>
+
+    <li><strong>Secretaría de Movilidad:</strong> Trámites de tránsito, información de movilidad y orientación a conductores.</li>
+
+    <li><strong>Punto Vive Digital:</strong> Acceso a internet, apoyo tecnológico, cursos digitales y trámites en línea.</li>
+  </ul>
+
+  <p class="mt-3">
+    Todos estos puntos están marcados en el mapa interactivo de la derecha para que puedas 
+    ubicarlos fácilmente y conocer su función principal.
+  </p>
+</div>
     <!-- MAPA -->
     <div id="map"></div>
   </div>
@@ -235,21 +253,63 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    // Mapa centrado en Itagüí
-    const map = L.map('map').setView([6.1719, -75.6118], 13);
+<script>
+  // Mapa centrado en Itagüí
+  const map = L.map('map').setView([6.1719, -75.6118], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-    }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
 
-    L.marker([6.1719, -75.6118]).addTo(map)
-      .bindPopup('📍 Itagüí<br>Bienvenido al mapa interactivo.')
-      .openPopup();
+  // --- PUNTOS DE ATENCIÓN ---
+  const puntos = [
+    {
+      nombre: "📍 Centro de Atención a la Ciudadanía (CAC)",
+      coords: [6.17137, -75.61212],
+      desc: "Calle 36 #57-59, Parque Principal. Atención presencial."
+    },
+    {
+      nombre: "⚖️ Casa de Justicia",
+      coords: [6.17445, -75.61410],
+      desc: "Servicios de conciliación, orientación y justicia."
+    },
+    {
+      nombre: "🆔 Oficina de Pasaportes y Trámites",
+      coords: [6.17190, -75.61150],
+      desc: "Atención a documentos y trámites ciudadanos."
+    },
+    {
+      nombre: "🏥 Hospital del Sur",
+      coords: [6.16870, -75.61620],
+      desc: "Atención médica y urgencias."
+    },
+    {
+      nombre: "💉 Secretaría de Salud",
+      coords: [6.17550, -75.60970],
+      desc: "Programas de salud, vacunación y atención comunitaria."
+    },
+    {
+      nombre: "🚦 Secretaría de Movilidad",
+      coords: [6.16580, -75.61490],
+      desc: "Información sobre tránsito, trámites y movilidad."
+    },
+    {
+      nombre: "💻 Punto Vive Digital",
+      coords: [6.17030, -75.60510],
+      desc: "Acceso a tecnología y apoyo digital."
+    }
+  ];
 
-    L.control.scale().addTo(map);
-  </script>
+  // Recorrer y agregar marcadores
+  puntos.forEach(p => {
+    L.marker(p.coords)
+      .addTo(map)
+      .bindPopup(`<b>${p.nombre}</b><br>${p.desc}`);
+  });
+
+  L.control.scale().addTo(map);
+</script>
 <!-- 🔹 Script para ocultar el loader al cargar -->
   <script>
     window.addEventListener("load", () => {

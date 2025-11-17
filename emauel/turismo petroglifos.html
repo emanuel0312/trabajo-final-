@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TURISMO EDUCATIVO</title>
   <link href="turismo.css" rel="stylesheet">
-  <!-- Favicon -->
   <link rel="icon" href="escudo ema.svg" type="image/png">
 
-  <!-- Google Fonts: Alkatra -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-   <!-- Bootstrap Icons (necesario para las flechas) -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- 🔹 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
-    
-    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
+    body, h1, h2, h3, p, a, li, button, footer {
       font-family: 'Alkatra', cursive !important;
     }
 
     h2 {
-      color: #FAB900; /* amarillo del título */
+      color: #FAB900;
     }
 
     .section-info {
@@ -47,36 +47,39 @@
       text-align: justify;
     }
 
-    @media (max-width: 768px) {
-      .section-info {
-        padding: 30px 20px;
-      }
+    #map {
+      height: 350px;
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
-          /* Estilo del botón de regreso */
-  .btn-back {
-    position: fixed; /* <- fijo en la pantalla, no se mueve */
-    bottom: 20px;    /* separación del borde inferior */
-    left: 20px;      /* separación del borde izquierdo */
-    background-color: #013757;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    z-index: 9999; /* se asegura que esté por encima de todo */
-  }
 
-  .btn-back:hover {
-    background-color: #0180c7;
-    transform: scale(1.1);
-  }
-      /* 🔹 Loader azul centrado */
+    .btn-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #013757;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+
+    .btn-back:hover {
+      background-color: #0180c7;
+      transform: scale(1.1);
+    }
+
+    /* loader */
     #loader {
       position: fixed;
       width: 100%;
@@ -98,106 +101,90 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <!-- 🔹 Loader (círculo de carga azul) -->
+
+  <!-- Loader -->
   <div id="loader">
-    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
-      <span class="visually-hidden">Cargando...</span>
-    </div>
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status"></div>
   </div>
+
   <!-- NAVBAR -->
   <nav class="navbar navbar-dark">
     <div class="container">
       <a class="navbar-brand fw-bold text-white" href="emanue.html">
-        <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
+        <img src="Logo de itagui.png" width="200" class="me-2">
       </a>
 
       <form class="d-flex mx-auto w-50" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+        <input class="form-control me-2" type="search" placeholder="Buscar...">
         <button class="btn btn-light" type="submit">Buscar</button>
       </form>
 
-      <!-- Botón menú lateral -->
       <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+        data-bs-target="#offcanvasRight">☰</button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas offcanvas-end" id="offcanvasRight">
         <div class="offcanvas-header" style="background-color: #0180c7;">
-          <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 class="text-white">Menú</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body text-center" style="background-color: #0180c7;">
           <div class="d-grid gap-3">
-            <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
-            <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
-            <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+            <a href="recursos1.html" class="btn btn-warning fw-bold py-3 rounded-3">Recursos</a>
+            <a href="apoyo.htm" class="btn btn-warning fw-bold py-3 rounded-3">Apoyo</a>
+            <a href="foro.html" class="btn btn-warning fw-bold py-3 rounded-3">Foro</a>
+            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">punto de informacion</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- CONTENIDO -->
   <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
-    <!-- Imagen -->
+
     <div class="col-md-6">
-      <img src="petroglifos.webp" alt="Parque de los Petroglifos de Itagüí" class="img-section">
+      <img src="petroglifos.webp" class="img-section">
     </div>
 
-   <!-- Información -->
-<div class="col-md-6 section-info text-center">
-  <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-    <a href="turismo museo.html">
-      <i class="bi bi-arrow-left-circle-fill me-3"></i>
-    </a>
-    Turismo Educativo
-    <a href="turismo museo cultural.html">
-      <i class="bi bi-arrow-right-circle-fill ms-3"></i>
-    </a>
-  </h4>
+    <div class="col-md-6 section-info text-center">
+      <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
+        <a href="turismo museo.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
+        Turismo Educativo
+        <a href="turismo museo cultural.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
+      </h4>
 
-  <h2 class="fw-bold text-center mb-3">Parque de los Petroglifos de Itagüí</h2>
+      <h2 class="fw-bold mb-3">Parque de los Petroglifos de Itagüí</h2>
 
-  <p class="descripcion text-start">
-    <strong>Descripción:</strong>Este parque arqueológico alberga petroglifos atribuidos a tribus descendientes de los Chibchas, como los Nutabes. Es un sitio de interés histórico y ecológico que permite a los visitantes conectarse con las raíces ancestrales de la región.
-  </p>
+      <p class="descripcion text-start">
+        <strong>Descripción:</strong> Este parque arqueológico alberga petroglifos atribuidos a tribus descendientes de los Chibchas.
+      </p>
 
-  <p class="descripcion text-start">
-    <strong>¿Qué lo hace especial?</strong><br>
-    • Preserva vestigios arqueológicos de gran valor.<br>
-    • Ofrece un entorno natural propicio para el aprendizaje.<br>
-    • Es un espacio para la reflexión sobre la historia precolombina.
-  </p>
+      <p class="descripcion text-start">
+        <strong>¿Qué lo hace especial?</strong><br>
+        • Vestigios arqueológicos de gran valor.<br>
+        • Entorno natural educativo.<br>
+        • Conexión con la historia precolombina.
+      </p>
 
-<p class="descripcion text-start">
-  <strong>Dirección:</strong> 
-  <a href="https://www.google.com/maps/place/Parque+de+los+Petroglifos+de+Itag%C3%BC%C3%AD/@6.1763407,-75.6166155,17z/data=!3m1!4b1!4m6!3m5!1s0x8e46822f46fce9bf:0x70f5747cb0997d9a!8m2!3d6.1763354!4d-75.6140406!16s%2Fg%2F12gh57s_x?entry=ttu&g_ep=EgoyMDI1MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-primary">
- a 46-76, Cra. 57 #46-2, Itagüi, Antioquia
-  </a>
-  <br>
-  <strong>Sitio web:</strong> 
-  <a href="https://corporacionsipah.org/petroglifos/" target="_blank" class="text-primary">
-   https://corporacionsipah.org/petroglifos/
-  </a>
-</p>
+      <p class="descripcion text-start">
+        <strong>Dirección:</strong> Cra. 57 #46-2, Itagüí, Antioquia<br>
+        <strong>Sitio web:</strong> corporacionsipah.org/petroglifos
+      </p>
 
-</div>
+      <!-- 🔹 MAPA -->
+      <div id="map"></div>
 
-
-  <!-- FOOTER -->
-  <footer class="text-white py-5 mt-auto">
+    </div>
+  </section>
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mb-4">
           <h5 class="fw-bold">Atención presencial</h5>
           <ul class="list-unstyled mb-4">
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
-            <li>
-              Dirección:
-              <a href="#" class="text-white text-decoration-underline">
-                Calle 36 #57-59, Parque Principal
-              </a>
-            </li>
+            <li>Dirección: Calle 36 #57-59, Parque Principal</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
             <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
           </ul>
@@ -205,7 +192,7 @@
           <h5 class="fw-bold">Atención telefónica</h5>
           <ul class="list-unstyled">
             <li>Línea fija: (604) 373 7676</li>
-            <li>WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
           </ul>
         </div>
@@ -213,36 +200,27 @@
         <div class="col-md-6">
           <h5 class="fw-bold">Atención virtual</h5>
           <ul class="list-unstyled mb-4">
-            <li>
-              Página web:
-              <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">
-                www.itagui.gov.co
-              </a>
-            </li>
-            <li>
-              Correo:
-              <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">
-                serviciociudadano@itagui.gov.co
-              </a>
-            </li>
-            <li>PQRS en línea disponible 24/7</li>
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
           </ul>
 
-          <h5 class="fw-bold">Redes sociales</h5>
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
           <ul class="list-unstyled">
-            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook: Alcaldía de Itagüí</a></li>
-            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram: @itagui.oficial</a></li>
-            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube: Alcaldía de Itagüí</a></li>
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </footer>
-     <!-- BOTÓN DE REGRESO -->
-  <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
-    <i class="bi bi-arrow-left"></i>
-  </a>
-      <!-- 🔹 Script para ocultar el loader al cargar -->
+  </section>
+
+  <!-- Botón regresar -->
+  <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
+
+  <!-- Loader hide -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
@@ -250,7 +228,26 @@
       setTimeout(() => loader.style.display = "none", 500);
     });
   </script>
-  <!-- Bootstrap JS -->
+
+  <!-- 🔹 Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- 🔹 Script del mapa -->
+  <script>
+    var map = L.map('map').setView([6.1763354, -75.6140406], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19
+    }).addTo(map);
+
+    L.marker([6.1763354, -75.6140406])
+      .addTo(map)
+      .bindPopup("Parque de los Petroglifos de Itagüí")
+      .openPopup();
+  </script>
+
+  <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -5,77 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TURISMO EDUCATIVO</title>
   <link href="turismo.css" rel="stylesheet">
+
   <!-- Favicon -->
   <link rel="icon" href="escudo ema.svg" type="image/png">
 
-  <!-- Google Fonts: Alkatra -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-   <!-- Bootstrap Icons (necesario para las flechas) -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- 🔹 Leaflet CSS (OBLIGATORIO PARA EL MAPA) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
-    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button {
       font-family: 'Alkatra', cursive !important;
     }
 
-    h2 {
-      color: #FAB900; /* amarillo del título */
-    }
+    h2 { color: #FAB900; }
 
     .section-info {
-      background-color: #ffffff;
+      background-color: #fff;
       padding: 50px;
+      height: 900px;
+      overflow-y: auto;
     }
 
     .img-section {
-      object-fit: cover;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     .navbar, footer {
       background-color: #0180c7 !important;
     }
 
-    .descripcion {
-      text-align: justify;
-    }
+    .descripcion { text-align: justify; }
 
     @media (max-width: 768px) {
-      .section-info {
-        padding: 30px 20px;
-      }
+      .section-info { height: auto; padding: 25px; }
     }
-          /* Estilo del botón de regreso */
-  .btn-back {
-    position: fixed; /* <- fijo en la pantalla, no se mueve */
-    bottom: 20px;    /* separación del borde inferior */
-    left: 20px;      /* separación del borde izquierdo */
-    background-color: #013757;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    z-index: 9999; /* se asegura que esté por encima de todo */
-  }
 
-  .btn-back:hover {
-    background-color: #0180c7;
-    transform: scale(1.1);
-  }
-      /* 🔹 Loader azul centrado */
+    #mapaFiestas {
+      height: 350px;
+      border-radius: 12px;
+      margin-top: 20px;
+      z-index: 1;
+    }
+
+    /* Botón volver */
+    .btn-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #013757;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+    .btn-back:hover { background-color: #0180c7; transform: scale(1.1); }
+        /* Loader */
     #loader {
       position: fixed;
       width: 100%;
@@ -89,24 +92,18 @@
       align-items: center;
       transition: opacity 0.5s ease;
     }
-    #loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
   </style>
 </head>
-
 <body class="d-flex flex-column min-vh-100">
-  <!-- 🔹 Loader (círculo de carga azul) -->
+      <!-- LOADER -->
   <div id="loader">
-    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
-      <span class="visually-hidden">Cargando...</span>
-    </div>
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;"></div>
   </div>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-dark">
+  <!-- 🔹 Navbar principal -->
+  <nav class="navbar navbar-dark" style="background-color: #0180c7;">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
+      <a class="navbar-brand fw-bold text-white" href="#">
         <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
       </a>
 
@@ -130,69 +127,81 @@
             <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
             <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
             <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
+            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">punto de informacion</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-
   <!-- CONTENIDO PRINCIPAL -->
-  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
+  <section class="row g-0 flex-column-reverse flex-md-row">
+
     <!-- Imagen -->
     <div class="col-md-6">
-      <img src="casa ditaires.webp" alt="Casa Museo Ditaires" class="img-section">
+      <img src="casa ditaires.webp" class="img-section">
     </div>
 
-   <!-- Información -->
-<div class="col-md-6 section-info text-center">
-  <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-    <a href="turismo museo cultural.html">
-      <i class="bi bi-arrow-left-circle-fill me-3"></i>
-    </a>
-    Turismo Educativo
-    <a href="turismo museo.html">
-      <i class="bi bi-arrow-right-circle-fill ms-3"></i>
-    </a>
-  </h4>
+    <!-- INFORMACIÓN -->
+    <div class="col-md-6 section-info">
 
-  <h2 class="fw-bold text-center mb-3">Casa Museo Ditaires</h2>
+      <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-between">
+        <a href="turismo museo cultural.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
+        Turismo Educativo
+        <a href="turismo museo.html"><i class="bi bi-arrow-right-circle-fill"></i></a>
+      </h4>
 
-  <p class="descripcion text-start">
-    <strong>Descripción:</strong> Antiguamente conocida como Hacienda Ditaires, fue la residencia del filántropo Diego Echavarría Misas. Actualmente, funciona como museo y centro cultural, ofreciendo exposiciones temporales, un auditorio y espacios para actividades académicas y sociales. 
-  </p>
-    <p class="descripcion text-start">
- <strong>Horario de atención</strong><br>
-    • Martes a jueves: 9:00 a.m. - 5:00 p.m.<br>
-    • Viernes: 9:00 a.m. - 4:00 p.m.<br>
-    • Sábados: 9:00 a.m. - 2:00 p.m.
-    </p>
-    <p class="descripcion text-start">
-  <strong>Dirección:</strong> 
-  <a href="https://www.google.com/maps/place/Casa+de+la+Cultura+de+Itag%C3%BC%C3%AD/@6.1765664,-75.6233453,15z/data=!4m10!1m2!2m1!1sCasa+de+la+Cultura+de+Itag%C3%BC%C3%AD!3m6!1s0x8e46818192809b37:0xb04fb741c1e234ce!8m2!3d6.1692484!4d-75.6259299!15sCh5DYXNhIGRlIGxhIEN1bHR1cmEgZGUgSXRhZ8O8w61aICIeY2FzYSBkZSBsYSBjdWx0dXJhIGRlIGl0YWfDvMOtkgEPY3VsdHVyYWxfY2VudGVymgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVF5Ym5CeWIycG5SUkFC4AEA-gEECAAQOg!16s%2Fg%2F12dpwl2r7?entry=ttu&g_ep=EgoyMDI1MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-primary">
-Cl. 36 #57- 59, Pilsen, Itagüi, Antioquia</a>
-  <br>
-  <strong>Sitio web:</strong> 
-  <a href="https://www.google.com/url?url=https%3A%2F%2Fwww.itagui.gov.co%2Fsitio%2Fver_noticia%2Fitagui-abre-inscripciones-para-los-talleres-de-la-casa-de-la-cultura&sa=t&rct=j&source=maps&usg=AOvVaw075uhiVY4tie451hTyw2J9&ved=1i%3A0%2Ct%3A3443%2Ce%3A60%2Cp%3AYpYCacezIPCbwbkP7NGl6AU%3A91" target="_blank" class="text-primary">
-https://www.google.com/url?url=https%3A%2F%2Fwww.itagui.gov.co%2Fsitio%2Fver_noticia%2Fitagui-abre-inscripciones-para-los-talleres-de-la-casa-de-la-cultura&sa=t&rct=j&source=maps&usg=AOvVaw075uhiVY4tie451hTyw2J9&ved=1i%3A0%2Ct%3A3443%2Ce%3A60%2Cp%3AYpYCacezIPCbwbkP7NGl6AU%3A91  </a>
-</p>
+      <h2 class="fw-bold mb-3">Casa Museo Ditaires</h2>
 
-</div>
+      <p class="descripcion">
+        <strong>Descripción:</strong> Antigua residencia del filántropo **Diego Echavarría Misas**, la Casa Museo Ditaires es hoy un espacio cultural con exhibiciones, historia regional, talleres artísticos, visitas guiadas y actividades patrimoniales.
+      </p>
 
+      <p class="descripcion">
+        <strong>Horario de atención:</strong><br>
+        • Martes a jueves: 9:00 a.m. – 5:00 p.m.<br>
+        • Viernes: 9:00 a.m. – 4:00 p.m.<br>
+        • Sábados: 9:00 a.m. – 2:00 p.m.
+      </p>
 
-  <!-- FOOTER -->
-  <footer class="text-white py-5 mt-auto">
+      <p class="descripcion">
+        <strong>Dirección:</strong>  
+        <a href="https://maps.app.goo.gl/UfjSy3tQaA7P1y8Q9" target="_blank">
+          Cra. 52D # 62-20, Ditaires, Itagüí
+        </a>
+      </p>
+
+      <p class="descripcion">
+        <strong>Servicios del museo:</strong>
+        <ul>
+          <li>Visitas guiadas históricas</li>
+          <li>Galería con exposiciones temporales</li>
+          <li>Auditorio para charlas y eventos</li>
+          <li>Talleres artísticos para todas las edades</li>
+          <li>Biblioteca y sala de consulta</li>
+        </ul>
+      </p>
+
+      <p class="descripcion">
+        <strong>Sitio web oficial:</strong><br>
+        <a href="https://www.itagui.gov.co" target="_blank">www.itagui.gov.co</a>
+      </p>
+
+      <hr>
+
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <div id="mapaFiestas"></div>
+
+    </div>
+  </section>
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mb-4">
           <h5 class="fw-bold">Atención presencial</h5>
           <ul class="list-unstyled mb-4">
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
-            <li>
-              Dirección:
-              <a href="#" class="text-white text-decoration-underline">
-                Calle 36 #57-59, Parque Principal
-              </a>
-            </li>
+            <li>Dirección: Calle 36 #57-59, Parque Principal</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
             <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
           </ul>
@@ -200,7 +209,7 @@ https://www.google.com/url?url=https%3A%2F%2Fwww.itagui.gov.co%2Fsitio%2Fver_not
           <h5 class="fw-bold">Atención telefónica</h5>
           <ul class="list-unstyled">
             <li>Línea fija: (604) 373 7676</li>
-            <li>WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
           </ul>
         </div>
@@ -208,43 +217,55 @@ https://www.google.com/url?url=https%3A%2F%2Fwww.itagui.gov.co%2Fsitio%2Fver_not
         <div class="col-md-6">
           <h5 class="fw-bold">Atención virtual</h5>
           <ul class="list-unstyled mb-4">
-            <li>
-              Página web:
-              <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">
-                www.itagui.gov.co
-              </a>
-            </li>
-            <li>
-              Correo:
-              <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">
-                serviciociudadano@itagui.gov.co
-              </a>
-            </li>
-            <li>PQRS en línea disponible 24/7</li>
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
           </ul>
 
-          <h5 class="fw-bold">Redes sociales</h5>
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
           <ul class="list-unstyled">
-            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook: Alcaldía de Itagüí</a></li>
-            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram: @itagui.oficial</a></li>
-            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube: Alcaldía de Itagüí</a></li>
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </footer>
-    <!-- BOTÓN DE REGRESO -->
-    <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
+  </section>
+  <!-- BOTÓN VOLVER -->
+  <a href="pagina turismo.html" class="btn-back" title="Volver">
     <i class="bi bi-arrow-left"></i>
-    </a>
+  </a>
+
+  <!-- 🔹 Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapa = L.map('mapaFiestas').setView([6.17466, -75.61451], 17);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(mapa);
+
+      L.marker([6.17466, -75.61451])
+        .addTo(mapa)
+        .bindPopup("<b>Casa Museo Ditaires</b><br>Centro cultural de Itagüí.")
+        .openPopup();
+    });
+  </script>
+  <script>
+      // Loader
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
   </script>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

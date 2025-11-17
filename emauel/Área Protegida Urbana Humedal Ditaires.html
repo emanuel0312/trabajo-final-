@@ -90,9 +90,8 @@
       opacity: 0;
       pointer-events: none;
     }
-
-    #mapaHumedal {
-      height: 300px;
+        #ditaires {
+      height: 350px;
       border-radius: 10px;
       margin-top: 20px;
     }
@@ -194,53 +193,53 @@
       <h4 class="fw-bold mt-4">Fauna y flora representativa</h4>
       <p class="descripcion"><strong>Aves:</strong> Turpiales, pisingos, colibríes, atrapamoscas.</p>
       <p class="descripcion"><strong>Flora:</strong> Juncos, heliconias, guaduas, palmas nativas.</p>
-
-      <!-- Mapa -->
-      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
-      <div id="mapaHumedal"></div>
-
+          <!-- mapa -->
+    <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+    <div id="ditaires"></div>
+  </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="text-white py-5 mt-auto">
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
       <div class="row">
-        <!-- izquierda -->
         <div class="col-md-6 mb-4">
           <h5 class="fw-bold">Atención presencial</h5>
           <ul class="list-unstyled mb-4">
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
             <li>Dirección: Calle 36 #57-59, Parque Principal</li>
-            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m.</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+            <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
           </ul>
 
           <h5 class="fw-bold">Atención telefónica</h5>
           <ul class="list-unstyled">
             <li>Línea fija: (604) 373 7676</li>
-            <li>WhatsApp: 310 460 03 86</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
           </ul>
         </div>
 
-        <!-- derecha -->
         <div class="col-md-6">
           <h5 class="fw-bold">Atención virtual</h5>
           <ul class="list-unstyled mb-4">
-            <li>Página web: www.itagui.gov.co</li>
-            <li>Correo: serviciociudadano@itagui.gov.co</li>
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
           </ul>
 
-          <h5 class="fw-bold">Redes sociales</h5>
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
           <ul class="list-unstyled">
-            <li>Facebook: Alcaldía de Itagüí</li>
-            <li>Instagram: @itagui.oficial</li>
-            <li>YouTube: Alcaldía de Itagüí</li>
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </footer>
-
+  </section>
   <!-- BOTÓN VOLVER -->
   <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
 
@@ -251,18 +250,21 @@
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
-  </script>
-
-  <!-- Mapa Leaflet -->
+    </script>
   <script>
-    var mapa = L.map('mapaHumedal').setView([6.167585, -75.6280918], 17);
+  // Mapa Leaflet
+  document.addEventListener("DOMContentLoaded", () => {
+    const mapa = L.map("ditaires").setView([6.167835662064313, -75.62804888895647], 16);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19
+    }).addTo(mapa);
 
-    L.marker([6.167585, -75.6280918])
+    L.marker([6.167835662064313, -75.62804888895647])
       .addTo(mapa)
-      .bindPopup("Humedal Ditaires - Área Protegida Urbana")
+      .bindPopup("<strong>Humedal Ditaires</strong>")
       .openPopup();
+  });
   </script>
 
   <!-- Bootstrap JS -->
