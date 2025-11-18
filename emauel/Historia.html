@@ -19,11 +19,14 @@
 
     <style>
         .hero-section {
-            position: relative;
-            min-height: 100vh;
-            background: url('Imagenitaguihd.jpg') no-repeat center center/cover;
-            overflow: hidden;
-        }
+       position: relative;
+      min-height: 80vh; /* un poco más bajo para evitar deformar */
+     background: url('Bannerhistoria.jpg') no-repeat center center;
+     background-size: contain;  /* 🔥 NO SE DEFORMA */
+     background-color: #013757;    /* fondo por si la imagen no cubre */
+     background-position: top center;
+      background-repeat: no-repeat;
+     }
 
         .hero-section::before {
             content: "";
