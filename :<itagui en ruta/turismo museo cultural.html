@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TURISMO EDUCATIVO</title>
   <link href="turismo.css" rel="stylesheet">
+  <!-- Favicon -->
   <link rel="icon" href="escudo ema.png" type="image/png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Alkatra -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
@@ -17,16 +18,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- 🔹 Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
   <style>
-    body, h1, h2, h3, p, a, li, button, footer {
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
       font-family: 'Alkatra', cursive !important;
     }
 
-    h2 {
-      color: #FAB900;
-    }
+    h2 { color: #FAB900; }
 
     .section-info {
       background-color: #ffffff;
@@ -43,16 +42,17 @@
       background-color: #0180c7 !important;
     }
 
-    .descripcion {
-      text-align: justify;
+    .descripcion { text-align: justify; }
+
+    #mapaCentroCultural {
+      height: 350px;
+      border-radius: 12px;
+      margin-top: 25px;
+      z-index: 1;
     }
 
-    #map {
-      height: 350px;
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    @media (max-width: 768px) {
+      .section-info { padding: 30px 20px; }
     }
 
     .btn-back {
@@ -78,8 +78,7 @@
       background-color: #0180c7;
       transform: scale(1.1);
     }
-
-    /* loader */
+        /* Loader */
     #loader {
       position: fixed;
       width: 100%;
@@ -93,110 +92,98 @@
       align-items: center;
       transition: opacity 0.5s ease;
     }
-    #loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
   </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-  <!-- Loader -->
+    <!-- LOADER -->
   <div id="loader">
-    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status"></div>
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;"></div>
   </div>
-
   <!-- NAVBAR -->
-  <nav class="navbar navbar-dark">
+     <nav class="navbar navbar-dark" style="background-color: #0180c7;">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
-        <img src="Logo de itagui.png" width="200" class="me-2">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
       </a>
 
       <form class="d-flex mx-auto w-50" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar...">
+        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
         <button class="btn btn-light" type="submit">Buscar</button>
       </form>
 
+      <!-- Botón menú lateral -->
       <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight">☰</button>
+        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
 
-      <div class="offcanvas offcanvas-end" id="offcanvasRight">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header" style="background-color: #0180c7;">
-          <h5 class="text-white">Menú</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+          <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-center" style="background-color: #0180c7;">
           <div class="d-grid gap-3">
-            <a href="recursos1.html" class="btn btn-warning fw-bold py-3 rounded-3">Recursos</a>
-            <a href="apoyo.htm" class="btn btn-warning fw-bold py-3 rounded-3">Apoyo</a>
-            <a href="foro.html" class="btn btn-warning fw-bold py-3 rounded-3">Foro</a>
+            <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
+            <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+            <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
             <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">punto de informacion</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
+  <!-- (tu navbar intacta) -->
 
-  <!-- CONTENIDO -->
+  <!-- CONTENIDO PRINCIPAL -->
   <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
-
+    <!-- Imagen -->
     <div class="col-md-6">
-      <img src="petroglifos.webp" class="img-section">
+      <img src="museo cultura.webp" alt="Centro Cultural Caribe" class="img-section">
     </div>
 
+    <!-- Información -->
     <div class="col-md-6 section-info text-center">
       <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="turismo museo.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
+        <a href="turismo petroglifos.html">
+          <i class="bi bi-arrow-left-circle-fill me-3"></i>
+        </a>
         Turismo Educativo
-        <a href="turismo museo cultural.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
+        <a href="turismo Casa Museo Ditaires.html">
+          <i class="bi bi-arrow-right-circle-fill ms-3"></i>
+        </a>
       </h4>
 
-      <h2 class="fw-bold mb-3">Parque de los Petroglifos de Itagüí</h2>
+      <h2 class="fw-bold text-center mb-3">Centro Cultural Caribe</h2>
 
       <p class="descripcion text-start">
-        <strong>Descripción:</strong> Este parque arqueológico alberga petroglifos atribuidos a tribus descendientes de los Chibchas.
+        <strong>Descripción:</strong> Inaugurado en 2023, es el primer museo público de Itagüí. Cuenta con tres salas de exposición: dos permanentes y una itinerante.
       </p>
 
       <p class="descripcion text-start">
-        <strong>¿Qué lo hace especial?</strong><br>
-        • Vestigios arqueológicos de gran valor.<br>
-        • Entorno natural educativo.<br>
-        • Conexión con la historia precolombina.
-      </p>
-      <p class="descripcion text-start">
-  <strong>Historia:</strong><br>
-  El Parque de los Petroglifos es uno de los lugares arqueológicos más importantes del Valle de Aburrá. 
-  Los grabados en piedra —realizados hace cientos de años— fueron hechos por comunidades indígenas 
-  pertenecientes al tronco cultural Chibcha, que habitaron esta zona mucho antes de la colonización española.
-</p>
-<p class="descripcion text-start">
-  <strong>Actividades recomendadas:</strong><br>
-  • Recorridos guiados para conocer la historia indígena de Itagüí.<br>
-  • Observación de fauna y flora del entorno natural.<br>
-  • Espacios para fotografía y clases de historia local.<br>
-  • Visitas académicas enfocadas en arqueología y patrimonio.
-</p>
-
-<p class="descripcion text-start">
-  <strong>Consejos para tu visita:</strong><br>
-  • Llevar calzado cómodo para caminar por senderos naturales.<br>
-  • Respetar las zonas protegidas y no tocar los petroglifos.<br>
-  • Ideal para visitas en la mañana o al final de la tarde.<br>
-  • No ingresar con alimentos para evitar contaminar el área.
-</p>
-      <p class="descripcion text-start">
-        <strong>Dirección:</strong> Cra. 57 #46-2, Itagüí, Antioquia<br>
-        <strong>Sitio web:</strong> corporacionsipah.org/petroglifos
+        <strong>Horario de atención</strong><br>
+        • Lunes a jueves: 7:00 a.m. - 12:30 p.m. y 1:30 p.m - 5:00 p.m<br>
+        • Viernes: 7:00 a.m. - 12:30 p.m. y 1:30 p.m - 4:00 p.m<br>
+        • Sábados: 9:00 a.m. - 2:00 p.m.
       </p>
 
-      <!-- 🔹 MAPA -->
-      <div id="map"></div>
+      <p class="descripcion text-start">
+        <strong>Dirección:</strong>
+        Cra. 50 #52-77, Villa Paula, Itagüí
+      </p>
+
+      <hr>
+
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <!-- 🔹 CONTENEDOR DEL MAPA -->
+      <div id="mapaCentroCultural"></div>
 
     </div>
   </section>
-  <!-- 🔹 Footer -->
+
+  <!-- FOOTER -->
+     <!-- 🔹 Footer -->
   <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
       <div class="row">
@@ -236,37 +223,40 @@
       </div>
     </div>
   </section>
+  <!-- (todo tu footer intacto) -->
 
-  <!-- Botón regresar -->
-  <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
+  <!-- BOTÓN VOLVER -->
+  <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
+    <i class="bi bi-arrow-left"></i>
+  </a>
 
-  <!-- Loader hide -->
+  <!-- 🔹 Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- 🔹 SCRIPT DEL MAPA -->
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapa = L.map('mapaCentroCultural').setView([6.1728219, -75.6076087], 17);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(mapa);
+
+      L.marker([6.1728219, -75.6076087])
+        .addTo(mapa)
+        .bindPopup("<b>Centro Cultural Caribe</b><br>Museo y espacio artístico de Itagüí.")
+        .openPopup();
+    });
+        // Loader
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
+
   </script>
 
-  <!-- 🔹 Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- 🔹 Script del mapa -->
-  <script>
-    var map = L.map('map').setView([6.1763354, -75.6140406], 17);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19
-    }).addTo(map);
-
-    L.marker([6.1763354, -75.6140406])
-      .addTo(map)
-      .bindPopup("Parque de los Petroglifos de Itagüí")
-      .openPopup();
-  </script>
-
-  <!-- Bootstrap -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

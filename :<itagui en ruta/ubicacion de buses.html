@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puntos de Bicicletas en Itagüí</title>
+  <title>Puntos de Buses en Itagüí</title>
   <link rel="icon" href="escudo ema.png" type="image/png">
+  <link rel="stylesheet" href="emanue.css">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
+  <!-- Bootstrap Icons (para que se vea la flecha) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
     body {
@@ -28,7 +30,6 @@
       width: 100%;
       border-radius: 15px;
       margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
     footer {
@@ -39,6 +40,7 @@
       margin-top: auto;
     }
 
+    /* 🔹 Botón redondo de regreso */
     .btn-back {
       position: fixed;
       bottom: 20px;
@@ -54,7 +56,7 @@
       justify-content: center;
       font-size: 24px;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
       z-index: 9999;
       text-decoration: none;
     }
@@ -83,7 +85,6 @@
     }
   </style>
 </head>
-
 <body class="d-flex flex-column min-vh-100">
   <!-- 🔹 Loader (círculo de carga azul) -->
   <div id="loader">
@@ -91,23 +92,22 @@
       <span class="visually-hidden">Cargando...</span>
     </div>
   </div>
-  <!-- Botón de regreso -->
-  <a href="emanue.html" class="btn-back" title="Volver al inicio">
-    <i class="bi bi-arrow-left"></i>
-  </a>
-
-  <!-- Navbar -->
+  <!-- 🔹 Navbar principal -->
   <nav class="navbar navbar-dark" style="background-color: #0180c7;">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
         <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
       </a>
+
       <form class="d-flex mx-auto w-50" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
         <button class="btn btn-light" type="submit">Buscar</button>
       </form>
+
+      <!-- Botón menú lateral -->
       <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header" style="background-color: #0180c7;">
@@ -119,73 +119,19 @@
             <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
             <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
             <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
-            <a href="punto_de_informacion.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Punto de información</a>
+            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Punto de información</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Contenido principal -->
+  <!-- 🔹 Mapa -->
   <main class="container my-4">
-    <h1 class="text-center fw-bold mb-4">PUNTOS DE BICICLETAS EN ITAGÜÍ</h1>
-    <p class="text-center fs-5">
-      A continuación encontrarás los principales puntos de bicicletas públicas del sistema EnCicla en Itagüí.
-    </p>
+    <p class="text-center fs-5">Aquí puedes ubicar los principales puntos donde puedes tomar buses en Itagüí.</p>
     <div id="map"></div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 Alcaldía de Itagüí - Estaciones Públicas de Bicicletas
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <script>
-    // Inicializa el mapa centrado en Itagüí
-    var map = L.map('map').setView([6.1719, -75.6119], 14);
-
-    // Capa base de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Puntos de bicicletas (EnCicla)
-    var estaciones = [
-      {
-        nombre: "Estación Doña María - EnCicla",
-        coords: [6.1668, -75.6100],
-        desc: "Ubicada cerca del Centro Comercial Plaza Arrayanes."
-      },
-      {
-        nombre: "Estación Parque Principal - EnCicla",
-        coords: [6.1717, -75.6112],
-        desc: "Junto al Parque Principal y la Alcaldía de Itagüí."
-      },
-      {
-        nombre: "Estación Terminal de Transporte - EnCicla",
-        coords: [6.1702, -75.6145],
-        desc: "Conectada con la terminal de buses del municipio."
-      },
-      {
-        nombre: "Estación Estrella del Sur - EnCicla",
-        coords: [6.1730, -75.6065],
-        desc: "Cerca del sector Estrella del Sur, acceso rápido al metro."
-      }
-    ];
-
-    // Agregar marcadores
-    estaciones.forEach(e => {
-      L.marker(e.coords).addTo(map)
-        .bindPopup(`<b>${e.nombre}</b><br>${e.desc}`);
-    });
-  </script>
   <!-- 🔹 Footer -->
   <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
@@ -196,7 +142,7 @@
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
             <li>Dirección: Calle 36 #57-59, Parque Principal</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
-            <li>Servicios: Trámites, asesorías, orientación general</li>
+            <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
           </ul>
 
           <h5 class="fw-bold">Atención telefónica</h5>
@@ -226,7 +172,61 @@
       </div>
     </div>
   </section>
-      <!-- 🔹 Script para ocultar el loader al cargar -->
+
+  <!-- 🔹 BOTÓN DE REGRESO -->
+  <a href="index.html" class="btn-back" title="Volver al inicio">
+    <i class="bi bi-arrow-left"></i>
+  </a>
+
+  <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Inicializar mapa centrado en Itagüí
+    var map = L.map('map').setView([6.1719, -75.6119], 14);
+
+    // Capa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Marcadores principales
+    var puntos = [
+      {
+        nombre: "Terminal de Transporte de Itagüí",
+        coords: [6.1702, -75.6145],
+        desc: "Principal terminal de buses urbanos e intermunicipales."
+      },
+      {
+        nombre: "Paradero Central - Parque Principal",
+        coords: [6.1717, -75.6112],
+        desc: "Punto de salida hacia Medellín, Envigado y San Antonio de Prado."
+      },
+      {
+        nombre: "Estación Itagüí - Metro",
+        coords: [6.1709, -75.6098],
+        desc: "Conexión con rutas alimentadoras y buses hacia barrios del municipio."
+      },
+      {
+        nombre: "Parada Ditaires",
+        coords: [6.1625, -75.6138],
+        desc: "Punto cercano al estadio Ditaires, con rutas hacia el sur y occidente."
+      },
+      {
+        nombre: "Parada Calatrava",
+        coords: [6.1741, -75.6044],
+        desc: "Conexión con rutas hacia El Poblado y el centro de Medellín."
+      }
+    ];
+
+    // Añadir marcadores al mapa
+    puntos.forEach(p => {
+      L.marker(p.coords).addTo(map)
+        .bindPopup(`<b>${p.nombre}</b><br>${p.desc}`);
+      }
+    );
+  </script>
+    <!-- 🔹 Script para ocultar el loader al cargar -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
@@ -234,6 +234,5 @@
       setTimeout(() => loader.style.display = "none", 500);
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

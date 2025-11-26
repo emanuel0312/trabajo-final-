@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TURISMO NATURAL</title>
+  <title>TURISMO COMERCIAL</title>
   <link href="turismo.css" rel="stylesheet">
-
   <!-- Favicon -->
   <link rel="icon" href="escudo ema.png" type="image/png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Alkatra -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
+
+   <!-- Bootstrap Icons (necesario para las flechas) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Leaflet (MAPA) -->
+    <!-- Leaflet (MAPA) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
-    body, h1, h2, h3, h4, h5, h6, p, a, li, button {
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
       font-family: 'Alkatra', cursive !important;
     }
 
-    h2 { color: #FAB900; }
+    h2 {
+      color: #FAB900; /* amarillo del título */
+    }
 
     .section-info {
       background-color: #ffffff;
@@ -46,33 +48,38 @@
 
     .descripcion {
       text-align: justify;
-      color: #333;
     }
 
-    .btn-back {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #013757;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: white;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-      z-index: 9999;
+    @media (max-width: 768px) {
+      .section-info {
+        padding: 30px 20px;
+      }
     }
-    .btn-back:hover {
-      background-color: #0180c7;
-      transform: scale(1.1);
-    }
+      /* Estilo del botón de regreso */
+  .btn-back {
+    position: fixed; /* <- fijo en la pantalla, no se mueve */
+    bottom: 20px;    /* separación del borde inferior */
+    left: 20px;      /* separación del borde izquierdo */
+    background-color: #013757;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 9999; /* se asegura que esté por encima de todo */
+  }
 
-    /* Loader */
+  .btn-back:hover {
+    background-color: #0180c7;
+    transform: scale(1.1);
+  }
+    /* 🔹 Loader azul centrado */
     #loader {
       position: fixed;
       width: 100%;
@@ -80,7 +87,7 @@
       background: white;
       top: 0;
       left: 0;
-      z-index: 99999;
+      z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -90,27 +97,25 @@
       opacity: 0;
       pointer-events: none;
     }
-        #ditaires {
-      height: 350px;
+     #mapaHumedal {
+      height: 300px;
       border-radius: 10px;
       margin-top: 20px;
     }
   </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-
-  <!-- LOADER -->
+<body class= "d-flex flex-column" style="min-height: 1000px;">
+    <!-- 🔹 Loader (círculo de carga azul) -->
   <div id="loader">
     <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
       <span class="visually-hidden">Cargando...</span>
     </div>
   </div>
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
         <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
       </a>
 
@@ -119,15 +124,16 @@
         <button class="btn btn-light" type="submit">Buscar</button>
       </form>
 
+      <!-- Botón menú lateral -->
       <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header" style="background-color: #0180c7;">
-          <h5 class="offcanvas-title text-white">Menú</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+          <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-
         <div class="offcanvas-body text-center" style="background-color: #0180c7;">
           <div class="d-grid gap-3">
             <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
@@ -141,65 +147,57 @@
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
-
-    <!-- Imagen -->
-    <div class="col-md-6">
-      <img src="Área Protegida Urbana Humedal Ditaires.webp" alt="Área Protegida Urbana Humedal Ditaires" class="img-section">
-    </div>
-
+  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch" style="height:950px;">
+   <!-- Imagen -->
+   <div class="col-md-6">
+    <img src="moda.jpg" alt="Centro Internacional de la Moda" class="img-section">
+   </div>
     <!-- Información -->
     <div class="col-md-6 section-info text-center">
+   <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
+   <a href="Central Mayorista de Antioquia.html">
+    <i class="bi bi-arrow-left-circle-fill me-3"></i>
+   </a>
+   Turismo Comercial
+   <a href="Fiestas de la Industria, el Comercio y la Cultura.html">
+    <i class="bi bi-arrow-right-circle-fill ms-3"></i>
+   </a>
+   </h4>
+   <h2 class="fw-bold text-center mb-3">Centro Internacional de la Moda</h2>
+   <p class="descripcion text-start">
+   <strong>Descripción:</strong>  Un complejo comercial especializado en la industria textil, donde se encuentran fábricas, outlets y tiendas de ropa para toda la familia.
+   </p>
+   <p class="descripcion text-start">
+   <strong>¿Qué lo hace especial?</strong><br>
+   • Precios bajos directamente de fabricantes.<br>
+   • Variedad en moda, calzado y accesorios.<br>
+   • Ideal para mayoristas y compradores minoristas.</p>
+   <p class="descripcion text-start">
+   <strong>Dirección:</strong> 
+   <a href="https://www.google.com/maps/place/Super+Centro+de+la+Moda/@6.1905383,-75.6129319,15z/data=!4m10!1m2!2m1!1scalle+81,+No.+52+DD+Itag%C3%BC%C3%AD,+Antioquia!3m6!1s0x8e46826b040cf2ef:0xb113cda25ddf2d66!8m2!3d6.1905383!4d-75.5949075!15sCidjYWxsZSA4MSwgTm8uIDUyIEREIEl0YWfDvMOtLCBBbnRpb3F1aWFaJiIkY2FsbGUgODEgbm8gNTIgZGQgaXRhZ8O8w60gYW50aW9xdWlhkgEPc2hvcHBpbmdfY2VudGVymgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJZZDJOSWVIUkJSUkFC4AEA-gEECAAQDQ!16s%2Fg%2F1tct9rz_?entry=ttu&g_ep=EgoyMDI1MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-primary">
+   Carrera 52D #81 52DD - 26, Cra. 52D #81-26, Itagüi, Antioquia  </a>
+   <br>
+   <strong>Sitio web:</strong> 
+   <a href="https://www.instagram.com/supercentrodelamoda/?hl=es" target="_blank" class="text-primary">
+   https://www.instagram.com/supercentrodelamoda/?hl=es</a>
+   </p>
+   <p class="descripcion text-start">
+  <strong>Historia:</strong> Este sector comercial comenzó a consolidarse a finales de los años 90, 
+  cuando varias fábricas y talleres textiles se establecieron en la zona. Con el tiempo, se convirtió 
+  en un punto clave para la venta de ropa al por mayor en el Valle de Aburrá.
+</p>
 
-      <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="parque chimeneas.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
-        Turismo Natural
-        <a href="La Montaña que Piensa.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
-      </h4>
+<p class="descripcion text-start">
+  <strong>Importancia:</strong> Hoy en día es un lugar reconocido por ofrecer ropa a precios de fábrica, 
+  atrayendo compradores de toda Colombia y generando empleo para muchas familias de Itagüí.
+</p>
 
-      <h2 class="fw-bold mb-3">Área Protegida Urbana Humedal Ditaires</h2>
+      <!-- Mapa -->
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <div id="mapaHumedal"></div>
 
-      <p class="descripcion">
-        <strong>Descripción:</strong> Con 12.54 hectáreas, este humedal alberga 173 especies de flora y 71 especies de aves, siendo un espacio ideal para la educación ambiental y la recreación pasiva.
-      </p>
-
-      <p class="descripcion">
-        <strong>Dirección:</strong> <a href="https://www.google.com/maps/place/Ditaires+Reserva+Natural+Humedal+Itag%C3%BC%C3%AD/@6.167585,-75.6280918,17z/data=!3m1!4b1!4m6!3m5!1s0x8e4681c16322648d:0xfa95c22b200a665c!8m2!3d6.167585!4d-75.6280918!16s%2Fg%2F11hdt4hyrd?entry=ttu&g_ep=EgoyMDI1MTExMS4wIKXMDSoASAFQAw%3D%3D">Pilsen, Itagüí, Antioquia </a>  
-        <br>
-        <strong>Sitio web:</strong>
-        <a href="https://www.metropol.gov.co/Paginas/Noticias/la-importancia-de-la-ar-humedal-ditaires.aspx" target="_blank">
-          Más información oficial aquí
-        </a>
-      </p>
-
-      <!-- Historia -->
-      <h4 class="fw-bold mt-4">Historia del humedal</h4>
-      <p class="descripcion">
-        En 2012 fue declarado Área Protegida Urbana debido a su biodiversidad única dentro de Itagüí.
-        Durante muchos años estuvo en riesgo por expansión urbana, pero hoy es un referente ambiental
-        gracias al esfuerzo de la comunidad y la administración municipal.
-      </p>
-
-      <!-- Importancia -->
-      <h4 class="fw-bold mt-4">Importancia ambiental</h4>
-      <ul class="descripcion text-start">
-        <li>Regula la temperatura y humedad del sector.</li>
-        <li>Refugio de aves migratorias.</li>
-        <li>Absorción de CO₂ y purificación del aire.</li>
-        <li>Espacio vital para educación ambiental.</li>
-      </ul>
-
-      <!-- Fauna y flora -->
-      <h4 class="fw-bold mt-4">Fauna y flora representativa</h4>
-      <p class="descripcion"><strong>Aves:</strong> Turpiales, pisingos, colibríes, atrapamoscas.</p>
-      <p class="descripcion"><strong>Flora:</strong> Juncos, heliconias, guaduas, palmas nativas.</p>
-          <!-- mapa -->
-    <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
-    <div id="ditaires"></div>
-  </div>
-    </div>
+   </div>
   </section>
-
   <!-- 🔹 Footer -->
   <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
@@ -240,35 +238,29 @@
       </div>
     </div>
   </section>
-  <!-- BOTÓN VOLVER -->
-  <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
-
-  <!-- Ocultar loader -->
+        <!-- BOTÓN DE REGRESO -->
+    <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+  </footer>
+     <!-- 🔹 Script para ocultar el loader al cargar -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
-    </script>
-  <script>
-  // Mapa Leaflet
-  document.addEventListener("DOMContentLoaded", () => {
-    const mapa = L.map("ditaires").setView([6.167835662064313, -75.62804888895647], 16);
+    // mapa loader
+    var mapa = L.map('mapaHumedal').setView([6.188324891268682, -75.596859345881], 17);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19
-    }).addTo(mapa);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
 
-    L.marker([6.167835662064313, -75.62804888895647])
+    L.marker([6.188324891268682, -75.596859345881])
       .addTo(mapa)
-      .bindPopup("<strong>Humedal Ditaires</strong>")
+      .bindPopup("Centro de la moda")
       .openPopup();
-  });
   </script>
-
-  <!-- Bootstrap JS -->
+    <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

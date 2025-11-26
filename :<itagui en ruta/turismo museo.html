@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TURISMO NATURAL</title>
+  <title>TURISMO EDUCATIVO</title>
   <link href="turismo.css" rel="stylesheet">
   <link rel="icon" href="escudo ema.png" type="image/png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- 🔹 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
   <style>
     body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
       font-family: 'Alkatra', cursive !important;
     }
+
     h2 { color: #FAB900; }
 
     .section-info {
-      background-color: #ffffff;
+      background-color: #fff;
       padding: 50px;
     }
 
@@ -33,9 +37,7 @@
       height: 100%;
     }
 
-    .navbar, footer {
-      background-color: #0180c7 !important;
-    }
+    .navbar, footer { background-color: #0180c7 !important; }
 
     .descripcion { text-align: justify; }
 
@@ -43,14 +45,7 @@
       .section-info { padding: 30px 20px; }
     }
 
-    #map {
-      height: 350px;
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    }
-
+    /* Botón volver */
     .btn-back {
       position: fixed;
       bottom: 20px;
@@ -65,10 +60,11 @@
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
       z-index: 9999;
     }
+
     .btn-back:hover {
       background-color: #0180c7;
       transform: scale(1.1);
@@ -92,19 +88,20 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    /* 🔹 MAPA */
+    #mapaMuseo {
+      height: 330px;
+      border-radius: 12px;
+      margin-top: 25px;
+      z-index: 1;
+    }
   </style>
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Loader -->
+  <!-- LOADER -->
   <div id="loader">
     <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
       <span class="visually-hidden">Cargando...</span>
@@ -114,7 +111,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
         <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
       </a>
 
@@ -134,55 +131,70 @@
         <div class="offcanvas-body text-center" style="background-color: #0180c7;">
           <div class="d-grid gap-3">
             <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
-            <a href="apoyo.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+            <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
             <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
-            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Punto de información</a>
+            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">punto de informacion</a>
           </div>
         </div>
       </div>
+
     </div>
   </nav>
 
-  <!-- CONTENIDO -->
-  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
-
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch" style="height:auto;">
+    <!-- Imagen -->
     <div class="col-md-6">
-      <img src="pomal (1).jpg" alt="Parque Ecológico El Pomal" class="img-section">
+      <img src="museo.webp" alt="Museo Comunitario Graciliano Arcila Vélez" class="img-section">
     </div>
 
+    <!-- Información -->
     <div class="col-md-6 section-info text-center">
+
       <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="La Montaña que Piensa.html">
+        <a href="turismo Casa Museo Ditaires.html">
           <i class="bi bi-arrow-left-circle-fill me-3"></i>
         </a>
-        Turismo Natural
-        <a href="parque chimeneas.html">
+        Turismo Educativo
+        <a href="turismo petroglifos.html">
           <i class="bi bi-arrow-right-circle-fill ms-3"></i>
         </a>
       </h4>
 
-      <h2 class="fw-bold mb-3">Parque Ecológico El Pomal</h2>
+      <h2 class="fw-bold mb-3">Museo Comunitario Graciliano Arcila Vélez</h2>
 
       <p class="descripcion text-start">
-        <strong>Descripción:</strong>
-        Este parque natural cuenta con árboles, jardines, senderos y espacios campestres. Es un sitio de encuentro comunitario ideal para descansar, hacer caminatas y conectarse con la naturaleza.
+        <strong>Descripción:</strong> Este museo es un proyecto comunitario ubicado en el barrio El Rosario. Se creó con el propósito de preservar la memoria histórica, cultural y ambiental de Itagüí. Su enfoque principal es promover el sentido de identidad local a través de objetos, documentos, fotografías y relatos de tradición oral recopilados por la comunidad.
       </p>
 
       <p class="descripcion text-start">
-        <strong>Dirección:</strong>
-        <a href="https://www.google.com/maps?q=Parque+Ecol%C3%B3gico+El+Pomal+Itag%C3%BC%C3%AD" target="_blank" class="text-primary">
-          Cra. 65 #26A-2, Itagüí, Antioquia
-        </a>
+        Además, el museo ofrece talleres educativos, recorridos guiados, actividades culturales, exposiciones temporales y espacios de diálogo sobre la transformación social del municipio.
       </p>
 
       <p class="descripcion text-start">
+        <strong>¿Qué lo hace especial?</strong><br>
+        • Construido y gestionado por líderes comunitarios.<br>
+        • Rescata historias, costumbres y memorias del territorio.<br>
+        • Espacio activo para la educación y la cultura.<br>
+        • Ideal para estudiantes, familias y turistas interesados en la identidad local.
+      </p>
+
+      <p class="descripcion text-start">
+        <strong>Dirección:</strong><br>
+        Cra. 57 #46c-14, Barrio Fátima, Itagüí<br>
+        <strong>Horario:</strong> Viernes y sábado, 9:00 a.m. - 4:30 p.m.<br>
         <strong>Sitio web:</strong>
-        <a href="https://itagui.gov.co/sitio/ver_noticia/itagui-celebra-la-semana-del-medio-ambiente" target="_blank" class="text-primary">
-          itagui.gov.co – Semana del Medio Ambiente
+        <a href="https://corporacionsipah.org/museo-g-a-v/" target="_blank" class="text-primary">
+          corporacionsipah.org/museo-g-a-v
         </a>
       </p>
-      <!-- MAPA -->
-      <div id="map"></div>
+
+      <hr>
+
+      <h4 class="fw-bold mt-4">Ubicación en el mapa</h4>
+      <!-- 🔹 CONTENEDOR MAPA -->
+      <div id="mapaMuseo"></div>
+
     </div>
   </section>
 
@@ -226,12 +238,10 @@
       </div>
     </div>
   </section>
-  <!-- Botón volver -->
-  <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
-    <i class="bi bi-arrow-left"></i>
-  </a>
+  <!-- BOTÓN DE REGRESO -->
+  <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
 
-  <!-- Loader Script -->
+  <!-- Loader -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
@@ -240,20 +250,23 @@
     });
   </script>
 
-  <!-- MAPA SCRIPT -->
+  <!-- 🔹 Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- 🔹 SCRIPT MAPA -->
   <script>
-    // Coordenadas reales del Parque Ecológico El Pomal
-    var map = L.map('map').setView([6.169409853576938, -75.64106734432653], 17);
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapa = L.map('mapaMuseo').setView([6.17607, -75.61384], 17);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19
-    }).addTo(map);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(mapa);
 
-    L.marker([6.169409853576938, -75.64106734432653])
-      .addTo(map)
-      .bindPopup("Parque Ecológico El Pomal")
-      .openPopup();
-  </script>
+      L.marker([6.17607, -75.61384])
+        .addTo(mapa)
+        .bindPopup("<b>Museo Comunitario Graciliano Arcila Vélez</b><br>Patrimonio cultural de Itagüí.")
+        .openPopup();
+    });
   </script>
 
   <!-- Bootstrap JS -->

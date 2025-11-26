@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TURISMO EDUCATIVO</title>
+  <title>TURISMO NATURAL</title>
   <link href="turismo.css" rel="stylesheet">
-  <!-- Favicon -->
   <link rel="icon" href="escudo ema.png" type="image/png">
 
-  <!-- Google Fonts: Alkatra -->
   <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- 🔹 Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
     body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
@@ -32,6 +24,12 @@
       padding: 50px;
     }
 
+    #mapaFiestas {
+      height: 350px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
     .img-section {
       object-fit: cover;
       width: 100%;
@@ -42,26 +40,12 @@
       background-color: #0180c7 !important;
     }
 
-    .descripcion { text-align: justify; }
-
-    #mapaCentroCultural {
-      height: 350px;
-      border-radius: 12px;
-      margin-top: 25px;
-      z-index: 1;
-    }
-
-    @media (max-width: 768px) {
-      .section-info { padding: 30px 20px; }
-    }
-
     .btn-back {
       position: fixed;
       bottom: 20px;
       left: 20px;
       background-color: #013757;
-      color: #000;
-      border: none;
+      color: #fff;
       border-radius: 50%;
       width: 50px;
       height: 50px;
@@ -69,16 +53,13 @@
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
       z-index: 9999;
+      transition: .3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
+    .btn-back:hover { background-color: #0180c7; transform: scale(1.1); }
 
-    .btn-back:hover {
-      background-color: #0180c7;
-      transform: scale(1.1);
-    }
-        /* Loader */
+    /* Loader */
     #loader {
       position: fixed;
       width: 100%;
@@ -97,93 +78,104 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <!-- LOADER -->
-  <div id="loader">
-    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;"></div>
-  </div>
+
   <!-- NAVBAR -->
-     <nav class="navbar navbar-dark" style="background-color: #0180c7;">
+  <nav class="navbar navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="emanue.html">
-        <img src="Logo de itagui.png" width="200" class="me-2" alt="Logo Itagüí">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="Logo de itagui.png" width="200" alt="Logo Itagüí">
       </a>
 
-      <form class="d-flex mx-auto w-50" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+      <form class="d-flex mx-auto w-50">
+        <input class="form-control me-2" type="search" placeholder="Buscar...">
         <button class="btn btn-light" type="submit">Buscar</button>
       </form>
 
-      <!-- Botón menú lateral -->
-      <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+      <button class="btn btn-light text-dark fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">☰</button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header" style="background-color: #0180c7;">
-          <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-end" id="offcanvasRight">
+        <div class="offcanvas-header" style="background:#0180c7;">
+          <h5 class="offcanvas-title text-white">Menú</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body text-center" style="background-color: #0180c7;">
+
+        <div class="offcanvas-body text-center" style="background:#0180c7;">
           <div class="d-grid gap-3">
-            <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
-            <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
-            <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
-            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">punto de informacion</a>
+            <a href="recursos1.html" class="btn btn-warning fw-bold py-3">Recursos</a>
+            <a href="apoyo.htm" class="btn btn-warning fw-bold py-3">Apoyo</a>
+            <a href="foro.html" class="btn btn-warning fw-bold py-3">Foro</a>
+            <a href="fox.html" class="btn btn-warning fw-bold py-3">Punto de Información</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-  <!-- (tu navbar intacta) -->
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
-    <!-- Imagen -->
+  <!-- CONTENIDO -->
+  <section class="row g-0 flex-column-reverse flex-md-row">
+    
     <div class="col-md-6">
-      <img src="museo cultura.webp" alt="Centro Cultural Caribe" class="img-section">
+      <img src="Parque Recreativo Las Chimeneas.webp" class="img-section">
     </div>
 
-    <!-- Información -->
-    <div class="col-md-6 section-info text-center">
-      <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
-        <a href="turismo petroglifos.html">
+    <!-- 🔥 TEXTO PEGADO ARRIBA -->
+    <div class="col-md-6 section-info d-flex flex-column justify-content-start text-start">
+
+      <h4 class="fw-bold text-uppercase mb-4 d-flex align-items-center">
+        <a href="turismo pomal.html">
           <i class="bi bi-arrow-left-circle-fill me-3"></i>
         </a>
-        Turismo Educativo
-        <a href="turismo Casa Museo Ditaires.html">
+        Turismo Natural
+        <a href="Área Protegida Urbana Humedal Ditaires.html">
           <i class="bi bi-arrow-right-circle-fill ms-3"></i>
         </a>
       </h4>
 
-      <h2 class="fw-bold text-center mb-3">Centro Cultural Caribe</h2>
+      <h2 class="fw-bold mb-3">Parque Recreativo Las Chimeneas</h2>
 
-      <p class="descripcion text-start">
-        <strong>Descripción:</strong> Inaugurado en 2023, es el primer museo público de Itagüí. Cuenta con tres salas de exposición: dos permanentes y una itinerante.
-      </p>
+      <p><strong>Descripción:</strong> Espacio renovado con zonas verdes, juegos, senderos y áreas de descanso. Es de los más visitados de Itagüí por su ambiente familiar y seguro.</p>
 
-      <p class="descripcion text-start">
-        <strong>Horario de atención</strong><br>
-        • Lunes a jueves: 7:00 a.m. - 12:30 p.m. y 1:30 p.m - 5:00 p.m<br>
-        • Viernes: 7:00 a.m. - 12:30 p.m. y 1:30 p.m - 4:00 p.m<br>
-        • Sábados: 9:00 a.m. - 2:00 p.m.
-      </p>
-
-      <p class="descripcion text-start">
-        <strong>Dirección:</strong>
-        Cra. 50 #52-77, Villa Paula, Itagüí
+      <p>
+        <strong>Dirección: </strong>
+        <a href="https://www.google.com/maps/place/Parque+Chimeneas+Itagüí/" target="_blank">Cl. 85 &, Cra. 52D</a><br>
+        <strong>Sitio Web: </strong>
+        <a href="https://www.itagui.gov.co" target="_blank">Información oficial</a>
       </p>
 
       <hr>
 
+      <h4 class="fw-bold text-primary mt-3">Historia del lugar</h4>
+      <p>
+        Antes era un espacio industrial conocido por sus antiguas chimeneas, símbolo del desarrollo urbano. Con los años se transformó en un parque moderno, sostenible y familiar.
+      </p>
+
+      <h4 class="fw-bold text-primary mt-3">Horarios</h4>
+      <ul>
+        <li>Lunes a domingo: 5:00 a.m. - 10:00 p.m.</li>
+        <li>Zonas infantiles: 8:00 a.m. - 8:00 p.m.</li>
+      </ul>
+
+      <h4 class="fw-bold text-primary mt-3">Actividades recomendadas</h4>
+      <ul>
+        <li>Picnic</li>
+        <li>Senderismo ligero</li>
+        <li>Fotografía de murales</li>
+        <li>Eventos culturales</li>
+      </ul>
+
+      <h4 class="fw-bold text-primary mt-3">Normas del parque</h4>
+      <ul>
+        <li>No ingresar bebidas alcohólicas</li>
+        <li>Mascotas con correa</li>
+        <li>No dañar jardines ni murales</li>
+      </ul>
+
       <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
-      <!-- 🔹 CONTENEDOR DEL MAPA -->
-      <div id="mapaCentroCultural"></div>
+      <div id="mapaFiestas"></div>
 
     </div>
   </section>
-
-  <!-- FOOTER -->
-     <!-- 🔹 Footer -->
+  <!-- 🔹 Footer -->
   <section class="bg-primary text-white py-5 mt-auto">
     <div class="container">
       <div class="row">
@@ -193,7 +185,7 @@
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
             <li>Dirección: Calle 36 #57-59, Parque Principal</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
-            <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
+            <li>Servicios: Trámites, asesorías, orientación general</li>
           </ul>
 
           <h5 class="fw-bold">Atención telefónica</h5>
@@ -223,41 +215,27 @@
       </div>
     </div>
   </section>
-  <!-- (todo tu footer intacto) -->
+  <a href="pagina turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
 
-  <!-- BOTÓN VOLVER -->
-  <a href="pagina turismo.html" class="btn-back" title="Volver al inicio">
-    <i class="bi bi-arrow-left"></i>
-  </a>
-
-  <!-- 🔹 Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- 🔹 SCRIPT DEL MAPA -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const mapa = L.map('mapaCentroCultural').setView([6.1728219, -75.6076087], 17);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19
-      }).addTo(mapa);
-
-      L.marker([6.1728219, -75.6076087])
-        .addTo(mapa)
-        .bindPopup("<b>Centro Cultural Caribe</b><br>Museo y espacio artístico de Itagüí.")
-        .openPopup();
-    });
-        // Loader
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       loader.classList.add("hidden");
       setTimeout(() => loader.style.display = "none", 500);
     });
 
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapa = L.map('mapaFiestas').setView([6.169194, -75.611667], 16);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
+      L.marker([6.169194, -75.611667])
+        .addTo(mapa)
+        .bindPopup("<strong>Parque Principal de Itagüí</strong><br>Ubicación central de las fiestas.")
+        .openPopup();
+    });
   </script>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
