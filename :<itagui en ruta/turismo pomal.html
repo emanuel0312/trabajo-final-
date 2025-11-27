@@ -135,7 +135,6 @@
           <div class="d-grid gap-3">
             <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
             <a href="apoyo.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
-            <a href="foro.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Foro</a>
             <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Punto de información</a>
           </div>
         </div>
@@ -150,7 +149,7 @@
       <img src="pomal (1).jpg" alt="Parque Ecológico El Pomal" class="img-section">
     </div>
 
-    <div class="col-md-6 section-info text-center">
+    <div class="col-md-6 section-info text-start">
       <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
         <a href="La Montaña que Piensa.html">
           <i class="bi bi-arrow-left-circle-fill me-3"></i>
@@ -161,27 +160,66 @@
         </a>
       </h4>
 
-      <h2 class="fw-bold mb-3">Parque Ecológico El Pomal</h2>
+      <h2 class="fw-bold mb-3 text-center">Parque Ecológico El Pomal</h2>
 
-      <p class="descripcion text-start">
+      <!-- ⭐ DESCRIPCIÓN COMPLETA -->
+      <p class="descripcion">
         <strong>Descripción:</strong>
-        Este parque natural cuenta con árboles, jardines, senderos y espacios campestres. Es un sitio de encuentro comunitario ideal para descansar, hacer caminatas y conectarse con la naturaleza.
+        El Parque Ecológico El Pomal es uno de los pulmones verdes más importantes de Itagüí. 
+        Cuenta con senderos naturales, jardines, zonas para descansar y espacios abiertos ideales 
+        para caminatas ecológicas, actividades educativas y encuentros comunitarios.
       </p>
 
-      <p class="descripcion text-start">
+      <!-- ⭐ HISTORIA -->
+      <p class="descripcion">
+        <strong>Historia:</strong>
+        Este parque fue creado como un espacio de protección ambiental y recreación familiar. 
+        Con el tiempo se ha convertido en un punto de encuentro para programas comunitarios, 
+        actividades ambientales y eventos culturales del municipio.
+      </p>
+
+      <!-- ⭐ ACTIVIDADES -->
+      <h4 class="fw-bold mt-4">Actividades que puedes hacer</h4>
+      <ul>
+        <li>Caminatas ecológicas</li>
+        <li>Fotografía de naturaleza</li>
+        <li>Pícnics en zonas verdes</li>
+        <li>Avistamiento de aves locales</li>
+        <li>Recorridos educativos para colegios</li>
+      </ul>
+
+      <!-- ⭐ HORARIO -->
+      <p class="descripcion">
+        <strong>Horario:</strong> Todos los días de 7:00 a.m. a 6:00 p.m.
+      </p>
+
+      <!-- ⭐ DIRECCIÓN -->
+      <p class="descripcion">
         <strong>Dirección:</strong>
         <a href="https://www.google.com/maps?q=Parque+Ecol%C3%B3gico+El+Pomal+Itag%C3%BC%C3%AD" target="_blank" class="text-primary">
           Cra. 65 #26A-2, Itagüí, Antioquia
         </a>
       </p>
 
-      <p class="descripcion text-start">
+      <!-- ⭐ SITIO WEB -->
+      <p class="descripcion">
         <strong>Sitio web:</strong>
         <a href="https://itagui.gov.co/sitio/ver_noticia/itagui-celebra-la-semana-del-medio-ambiente" target="_blank" class="text-primary">
-          itagui.gov.co – Semana del Medio Ambiente
+          itagui.gov.co - Semana del Medio Ambiente
         </a>
       </p>
+
+      <!-- ⭐ RECOMENDACIONES -->
+      <h4 class="fw-bold mt-4">Recomendaciones</h4>
+      <ul>
+        <li>Usar ropa cómoda para caminar</li>
+        <li>No arrojar basura</li>
+        <li>Respetar la fauna y la flora</li>
+        <li>Llevar hidratación</li>
+      </ul>
+
       <!-- MAPA -->
+      <h4 class="fw-bold text-start mt-4">Ubicación en mapa</h4>
       <div id="map"></div>
     </div>
   </section>
@@ -196,7 +234,7 @@
             <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
             <li>Dirección: Calle 36 #57-59, Parque Principal</li>
             <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
-            <li>Servicios: Trámites, PQRS, asesorías, orientación general</li>
+            <li>Servicios: Trámites, asesorías, orientación general</li>
           </ul>
 
           <h5 class="fw-bold">Atención telefónica</h5>
@@ -242,7 +280,6 @@
 
   <!-- MAPA SCRIPT -->
   <script>
-    // Coordenadas reales del Parque Ecológico El Pomal
     var map = L.map('map').setView([6.169409853576938, -75.64106734432653], 17);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -253,7 +290,6 @@
       .addTo(map)
       .bindPopup("Parque Ecológico El Pomal")
       .openPopup();
-  </script>
   </script>
 
   <!-- Bootstrap JS -->
