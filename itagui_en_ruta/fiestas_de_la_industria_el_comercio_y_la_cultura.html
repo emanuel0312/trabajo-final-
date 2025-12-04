@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TURISMO COMERCIAL</title>
+  <link href="turismo.css" rel="stylesheet">
+  <link rel="icon" href="escudo_ema.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Leaflet Mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
+      font-family: 'Alkatra', cursive !important;
+    }
+
+    h2 { color: #FAB900; }
+
+    .section-info { background: #fff; padding: 50px; }
+    .img-section { object-fit: cover; width: 100%; height: 100%; }
+    .navbar, footer { background-color: #0180c7 !important; }
+    .descripcion { text-align: justify; }
+
+    #mapaFiestas {
+      height: 350px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* BOTÓN BACK */
+    .btn-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #013757;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+
+    .btn-back:hover { background-color: #0180c7; transform: scale(1.1); }
+
+    /* LOADER */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-white" href="index.html">
+      <img src="logo_de_itagui.png" width="200" alt="Logo Itagüí">
+    </a>
+
+    <form class="d-flex mx-auto w-50" role="search">
+      <input class="form-control me-2" type="search" placeholder="Buscar...">
+      <button class="btn btn-light" type="submit">Buscar</button>
+    </form>
+
+    <button class="btn btn-light fw-bold" data-bs-toggle="offcanvas" data-bs-target="#menu">☰</button>
+
+    <div class="offcanvas offcanvas-end" id="menu">
+      <div class="offcanvas-header" style="background:#0180c7;">
+        <h5 class="text-white">Menú</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+
+      <div class="offcanvas-body text-center" style="background:#0180c7;">
+        <div class="d-grid gap-3">
+          <a href="recursos1.html" class="btn btn-warning fw-bold py-3">Recursos</a>
+          <a href="apoyo.htm" class="btn btn-warning fw-bold py-3">Apoyo</a>
+          <a href="fox.html" class="btn btn-warning fw-bold py-3">Punto de información</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- CONTENIDO PRINCIPAL -->
+<section class="row g-0 flex-column-reverse flex-md-row align-items-stretch">
+
+  <!-- IMG -->
+  <div class="col-md-6">
+    <img src="fiestas.webp" alt="Fiestas de Itagüí" class="img-section">
+  </div>
+
+  <!-- INFO -->
+  <div class="col-md-6 section-info text-center">
+
+    <h4 class="fw-bold text-uppercase mb-4 d-flex justify-content-center align-items-center">
+      <a href="centro_internacional_de_la_moda.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
+      Turismo Comercial
+      <a href="central_mayorista_de_antioquia.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
+    </h4>
+
+    <h2 class="fw-bold mb-3">Fiestas de la Industria, el Comercio y la Cultura</h2>
+
+    <p class="descripcion text-start">
+      <strong>Descripción:</strong> Estas fiestas son el evento cultural más importante de Itagüí,
+      celebradas tradicionalmente en agosto. Reúnen música, arte, tradición, gastronomía,
+      actividades empresariales y turismo.
+    </p>
+
+    <p class="descripcion text-start">
+      <strong>Actividades destacadas:</strong><br>
+      • Conciertos con artistas nacionales e internacionales.<br>
+      • Desfiles culturales, comparsas y presentación de grupos artísticos.<br>
+      • Feria empresarial y gastronómica.<br>
+      • Muestras artesanales y comerciales.<br>
+      • Actividades familiares y festivales deportivos.
+    </p>
+
+    <p class="descripcion text-start">
+      <strong>Día Mundial de la Pereza:</strong><br>
+      Una celebración única en Colombia y famosa internacionalmente,
+      realizada dentro de estas fiestas. Promueve descansar, relajarse y disfrutar.
+    </p>
+
+    <p class="descripcion text-start">
+      <strong>Duración:</strong> 8 días llenos de actividades para todos los gustos.
+    </p>
+
+    <p class="descripcion text-start">
+      <strong>Más información oficial:</strong><br>
+      <a href="https://itagui.gov.co/sitio/ver_noticia/las-fiestas-de-itagui-arrancaron-con-toda-hoy-inician-actividades-artisticas-culturales-gastronomicas-y-turisticas" target="_blank">
+        Ver sitio oficial aquí
+      </a>
+    </p>
+
+    <!-- MAPA -->
+    <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+    <div id="mapaFiestas"></div>
+
+  </div>
+</section>
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5 class="fw-bold">Atención presencial</h5>
+          <ul class="list-unstyled mb-4">
+            <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+            <li>Dirección: Calle 36 #57-59, Parque Principal</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+            <li>Servicios: Trámites, asesorías, orientación general</li>
+          </ul>
+
+          <h5 class="fw-bold">Atención telefónica</h5>
+          <ul class="list-unstyled">
+            <li>Línea fija: (604) 373 7676</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="fw-bold">Atención virtual</h5>
+          <ul class="list-unstyled mb-4">
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
+          </ul>
+
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- BOTÓN REGRESO -->
+<a href="pagina_turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
+
+<!-- Leaflet JS (mapa) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.classList.add("hidden");
+    setTimeout(() => loader.style.display = "none", 500);
+  });
+  // MAPA - ubica donde se hace el evento (Parque Principal)
+  document.addEventListener("DOMContentLoaded", () => {
+    const mapa = L.map('mapaFiestas').setView([6.169194, -75.611667], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapa);
+
+    L.marker([6.169194, -75.611667])
+      .addTo(mapa)
+      .bindPopup("<strong>Parque Principal de Itagüí</strong><br>Ubicación central de las fiestas.")
+      .openPopup();
+  });
+</script>
+
+</body>
+</html>

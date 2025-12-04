@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TURISMO NATURAL</title>
+  <link href="turismo.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="escudo_ema.png" type="image/png">
+
+  <!-- Google Fonts: Alkatra -->
+  <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Leaflet CSS (OBLIGATORIO para el mapa) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, footer {
+      font-family: 'Alkatra', cursive !important;
+    }
+
+    h2 { color: #FAB900; }
+
+    .section-info {
+      background-color: #ffffff;
+      padding: 50px;
+    }
+
+    .img-section {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .navbar, footer {
+      background-color: #0180c7 !important;
+    }
+
+    .descripcion { text-align: justify; }
+
+    #mapaFiestas {
+      height: 350px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* Botón */
+    .btn-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #013757;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+    .btn-back:hover {
+      background-color: #0180c7;
+      transform: scale(1.1);
+    }
+
+    /* Loader */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+  </style>
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="emanue.html">
+        <img src="logo_de_itagui.png" width="200" alt="Logo Itagüí">
+      </a>
+
+      <form class="d-flex mx-auto w-50">
+        <input class="form-control me-2" type="search" placeholder="Buscar...">
+        <button class="btn btn-light" type="submit">Buscar</button>
+      </form>
+
+      <button class="btn btn-light text-dark fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">☰</button>
+
+      <div class="offcanvas offcanvas-end" id="offcanvasRight">
+        <div class="offcanvas-header" style="background:#0180c7;">
+          <h5 class="offcanvas-title text-white">Menú</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body text-center" style="background:#0180c7;">
+          <div class="d-grid gap-3">
+            <a href="recursos1.html" class="btn btn-warning fw-bold py-3">Recursos</a>
+            <a href="apoyo.htm" class="btn btn-warning fw-bold py-3">Apoyo</a>
+            <a href="fox.html" class="btn btn-warning fw-bold py-3">Punto de Información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <section class="row g-0 flex-column-reverse flex-md-row">
+    <div class="col-md-6">
+      <img src="la_montaña_que_piensa.webp" class="img-section">
+    </div>
+
+    <div class="col-md-6 section-info">
+      <h4 class="fw-bold text-uppercase mb-4 text-center">
+        <a href="area_protegida_urbana_humedal_ditaires.html"><i class="bi bi-arrow-left-circle-fill me-3"></i></a>
+        Turismo Natural
+        <a href="turismo_pomal.html"><i class="bi bi-arrow-right-circle-fill ms-3"></i></a>
+      </h4>
+
+      <h2 class="fw-bold text-center mb-3">La Montaña que Piensa</h2>
+
+      <p class="descripcion">
+        <strong>Descripción:</strong> Proyecto social que mezcla arte, naturaleza, restaurante, museo y un mirador con vistas increíbles al Valle de Aburrá. Es un espacio que impulsa actividades culturales en un ambiente ecológico.
+      </p>
+
+      <p class="descripcion">
+        <strong>Horario de atención:</strong><br>
+        • Lunes a sábado: 2:00 p.m. - 12:00 a.m.<br>
+        • Domingos y festivos: 12:00 p.m. - 12:00 a.m.
+      </p>
+
+      <p class="descripcion">
+        <strong>Dirección:</strong>
+        <a href="https://maps.app.goo.gl/HHQH5swQnK4DoD7w5" target="_blank">Unnamed Rd, Itagüí</a><br>
+        <strong>Sitio web:</strong>
+        <a href="https://www.facebook.com/lamontana.quepiensa/?locale2=es_LA" target="_blank">Facebook Oficial</a>
+      </p>
+
+      <!-- 🔹 INFORMACIÓN EXTRA -->
+      <h4 class="fw-bold mt-4">¿Qué puedes hacer aquí?</h4>
+      <ul class="text-start">
+        <li>Mirador con vista panorámica.</li>
+        <li>Museo cultural y exposiciones.</li>
+        <li>Restaurante artesanal.</li>
+        <li>Eventos, música en vivo, talleres.</li>
+        <li>Zonas naturales para fotos.</li>
+      </ul>
+
+      <h4 class="fw-bold mt-4">Recomendaciones</h4>
+      <ul class="text-start">
+        <li>Ir con ropa cómoda.</li>
+        <li>Llevar chaqueta por el clima frío.</li>
+        <li>Batería cargada (perfecto para fotos).</li>
+      </ul>
+
+      <h4 class="fw-bold mt-4">Costos aproximados</h4>
+      <ul class="text-start">
+        <li>Entrada: Gratis</li>
+        <li>Restaurante: $25.000 - $60.000</li>
+        <li>Parqueadero: $5.000 - $10.000</li>
+      </ul>
+
+      <!-- MAPA -->
+      <h4 class="fw-bold mt-4">Ubicación en mapa</h4>
+      <div id="mapaFiestas"></div>
+
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5 class="fw-bold">Atención presencial</h5>
+          <ul class="list-unstyled mb-4">
+            <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+            <li>Dirección: Calle 36 #57-59, Parque Principal</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+            <li>Servicios: Trámites, asesorías, orientación general</li>
+          </ul>
+
+          <h5 class="fw-bold">Atención telefónica</h5>
+          <ul class="list-unstyled">
+            <li>Línea fija: (604) 373 7676</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="fw-bold">Atención virtual</h5>
+          <ul class="list-unstyled mb-4">
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
+          </ul>
+
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- BOTÓN ATRÁS -->
+  <a href="pagina_turismo.html" class="btn-back"><i class="bi bi-arrow-left"></i></a>
+
+  <!-- Leaflet JS (OBLIGATORIO para el mapa) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Loader
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+
+    // MAPA — Ubicación REAL de La Montaña que Piensa
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapa = L.map('mapaFiestas').setView([6.1951893, -75.6189651], 17);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(mapa);
+
+      L.marker([6.1951893, -75.6189651])
+        .addTo(mapa)
+        .bindPopup("<strong>La Montaña que Piensa</strong><br>Mirador y espacio cultural.")
+        .openPopup();
+    });
+  </script>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

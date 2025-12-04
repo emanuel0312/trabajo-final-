@@ -1,0 +1,293 @@
+<!-- pagina principal -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="escudo ema.svg" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itagüí</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="emanue.css">
+    <link rel="icon" href="escudo_ema.png" type="image/png">
+  <style>
+    /* 🔹 Loader azul centrado */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- 🔹 Barra superior con Iniciar sesión y Registro -->
+  <div class="bg-light py-1 border-bottom">
+    <div class="container d-flex justify-content-end align-items-center">
+      <a href="inicio.html" class="text-dark small me-3 text-decoration-none fw-semibold">Iniciar sesión</a>
+      <a href="registrarse.html" class="text-dark small text-decoration-none fw-semibold">Registrarse</a>
+    </div>
+  </div>
+  <!-- 🔹 Loader (círculo de carga azul) -->
+  <div id="loader">
+    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  <!-- 🔹 Navbar principal -->
+  <nav class="navbar navbar-dark" style="background-color: #0180c7;">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="logo_de_itagui.png" width="200" class="me-2" alt="Logo Itagüí">
+      </a>
+
+      <form class="d-flex mx-auto w-50" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+        <button class="btn btn-light" type="submit">Buscar</button>
+      </form>
+
+      <!-- Botón menú lateral -->
+      <button class="btn btn-light text-dark fw-bold" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">☰</button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header" style="background-color: #0180c7;">
+          <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Menú</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body text-center" style="background-color: #0180c7;">
+          <div class="d-grid gap-3">
+            <a href="recursos1.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Recursos</a>
+            <a href="apoyo.htm" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Apoyo</a>
+            <a href="fox.html" class="btn btn-warning text-dark fw-bold py-3 rounded-3">Punto de información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- 🔹 Carrusel -->
+  <section id="carruselTurismo" class="carousel slide" data-bs-ride="carousel" style="height:60vh;">
+    <div class="carousel-inner" style="height:90%;">
+      <div class="carousel-item" style="height:100%;">
+        <a href="https://www.itagui.gov.co/uploads/entidad/control/5989d-informe-de-rendicion-de-cuentas-general-2025.pdf">
+        <img src="pb0.png" class="d-block w-100" alt="Turismo Educativo" style="height:100%; object-fit:cover;">
+        </a>
+      </div>
+      <div class="carousel-item active" style="height:100%;">
+        <a href="https://www.itagui.gov.co/uploads/entidad/control/5989d-informe-de-rendicion-de-cuentas-general-2025.pdf">
+        <img src="pb1.png" class="d-block w-100" alt="Turismo Educativo" style="height:100%; object-fit:cover;">
+        </a>
+      </div> 
+     <div class="carousel-item" style="height:100%;">
+        <a href="https://www.pyphoy.com/itagui/particulares">
+        <img src="punlicidad3.png" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+        </a>
+      </div>
+              <div class="carousel-item" style="height:100%;">
+          <a href="https://www.fitchratings.com/entity/municipio-de-itagui-88430466">
+         <img src="pb3.png" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+       </div>
+        <div class="carousel-item" style="height:100%;">
+          <a href="https://itagui.gov.co/sitio/pagina/rit">
+         <img src="pb4.png" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+        </div>
+       <div class="carousel-item" style="height:100%;">
+          <a href="https://itagui.gov.co/kcfinder/upload/files/pdf/MANUAL_DE_IDENTIFICACIN_VISUAL_ALCALDIA_DE_ITAG_2024-V2.pdf">
+         <img src="pb5.png" class="d-block w-100" alt="Turismo Comercial" style="height:100%; object-fit:cover;">
+          </a>
+       </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselTurismo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselTurismo" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </section>
+
+  <!-- 🔹 Texto motivacional -->
+  <section class="text-center mb-2">
+    <div class="container">
+      <p class="text-secondary mx-auto" style="max-width: 700px;">
+        Cada rincón de nuestra ciudad vibra con el esfuerzo, la cultura y la pasión de su gente.  
+        Desde sus parques hasta sus barrios, Itagüí inspira movimiento, unión y orgullo.  
+        ¡Descubre el corazón que late en el sur del Valle de Aburrá!
+      </p>
+    </div>
+  </section>
+
+<!-- 🔹 Sección de Movilización -->
+<section class="py-5 bg-white">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4 text-primary">Movilización en Itagüí</h2>
+    <p class="mb-5 text-secondary">
+      Itagüí cuenta con una red de transporte diversa que conecta barrios, comunas y municipios del Valle de Aburrá. 
+      Aquí encontrarás las principales opciones de movilidad que facilitan el día a día de los ciudadanos.
+    </p>
+
+    <div class="row g-4">
+      <!-- 🚍 Transporte público -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-bus-front fs-1 text-primary"></i>
+            </div>
+            <h5 class="card-title fw-bold">Transporte público</h5>
+            <p class="card-text text-muted">
+              Rutas de buses urbanos e integrados al metro que conectan con diferentes sectores de la ciudad y municipios cercanos.
+            </p>
+            <a href="ubicacion_de_buses.html" class="btn btn-primary">Ver rutas</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🚇 Metro e Integrados -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-train-front fs-1 text-success"></i>
+            </div>
+            <h5 class="card-title fw-bold">Metro e integrados</h5>
+            <p class="card-text text-muted">
+              La estación Itagüí del Metro conecta a los ciudadanos con todo el Valle de Aburrá, complementada con rutas alimentadoras.
+            </p>
+            <a href="https://www.metrodemedellin.gov.co/" target="_blank" class="btn btn-success">Más información</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🚲 Movilidad sostenible -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-bicycle fs-1 text-warning"></i>
+            </div>
+            <h5 class="card-title fw-bold">Movilidad sostenible</h5>
+            <p class="card-text text-muted">
+              Fomentamos el uso de bicicletas, senderos seguros y transporte eléctrico para un futuro más limpio y saludable.
+            </p>
+            <a href="pagina_de_biciclestas.html"  class="btn btn-warning text-dark fw-bold">Ver proyectos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- 🔹 Contenido principal -->
+ <div class="container flex-grow-1 text-center mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5 mb-4 d-flex justify-content-center">
+      <div class="ratio ratio-16x9 w-100" style="max-width: 560px;">
+        <iframe src="https://www.youtube.com/embed/bS7nVt5ZSGs?si=p-M3cHxinCGvtrE1" 
+          title="YouTube video player" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-5 mb-4 d-flex justify-content-center">
+      <div class="ratio ratio-16x9 w-100" style="max-width: 560px;">
+        <iframe src="https://www.youtube.com/embed/CAzA5072sO4?si=uLBh4PlPwjs9XZdY" 
+          title="YouTube video player" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center fw-semibold mt-3">
+    “Itagüí, corazón del sur del Valle de Aburrá: donde la tradición, la innovación 
+    y la calidez de su gente se encuentran.”
+  </p>
+  <!-- 1 -->
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <a href="pagina_turismo.html">
+        <img src="ciudad.jpg" class="img-fluid rounded shadow mb-3" alt="Turismo" style="height: 200px; object-fit: cover;">
+        </a>
+        <a href="pagina_turismo.html" class="btn w-75" style="background-color: #FFC107; color: black; font-weight: bold;">TURISMO</a>
+      </div>
+      <!-- 2 -->
+      <div class="col-md-4 mb-4">
+        <a href="historia.html">
+        <img src="antiguo.jpg" class="img-fluid rounded shadow mb-3" alt="Historia" style="height: 200px; object-fit: cover;">
+        </a>
+        <a href="historia.html" class="btn w-75" style="background-color: #28A745; color: white; font-weight: bold;">HISTORIA</a>
+      </div>
+      <!-- 3 -->
+      <div class="col-md-4 mb-4">
+        <a href="noticias.html">
+        <img src="noticias.jpeg" class="img-fluid rounded shadow mb-3" alt="Eventos" style="height: 200px; object-fit: cover;">
+        </a>
+        <a href="noticias.html" class="btn w-75" style="background-color: #DC3545; color: white; font-weight: bold;">EVENTOS Y NOTICIAS</a>
+      </div>
+    </div>
+  </div>
+  <!-- 🔹 Footer -->
+  <section class="bg-primary text-white py-5 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5 class="fw-bold">Atención presencial</h5>
+          <ul class="list-unstyled mb-4">
+            <li><strong>Centro de Atención a la Ciudadanía (CAC)</strong></li>
+            <li>Dirección: Calle 36 #57-59, Parque Principal</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 4:00 p.m. (jornada continua)</li>
+            <li>Servicios: Trámites, asesorías, orientación general</li>
+          </ul>
+
+          <h5 class="fw-bold">Atención telefónica</h5>
+          <ul class="list-unstyled">
+            <li>Línea fija: (604) 373 7676</li>
+            <li>Línea de WhatsApp: 310 460 03 86 (solo mensajes)</li>
+            <li>Horario: Lunes a viernes, 8:00 a.m. - 5:00 p.m.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="fw-bold">Atención virtual</h5>
+          <ul class="list-unstyled mb-4">
+            <li>Página web: <a href="https://www.itagui.gov.co" target="_blank" class="text-white text-decoration-underline">www.itagui.gov.co</a></li>
+            <li>Correo: <a href="mailto:serviciociudadano@itagui.gov.co" class="text-white text-decoration-underline">serviciociudadano@itagui.gov.co</a></li>
+            <li>PQRS en línea: Disponible 24/7</li>
+            <li>Chat en vivo: horario laboral</li>
+          </ul>
+
+          <h5 class="fw-bold">Redes sociales oficiales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/alcaldiaitagui/?locale=es_LA" class="text-white text-decoration-underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alcaldiadeitagui/?hl=es" class="text-white text-decoration-underline">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@alcaldiaitagui1" class="text-white text-decoration-underline">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- 🔹 Script para ocultar el loader al cargar -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
